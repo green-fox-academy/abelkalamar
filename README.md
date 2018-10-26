@@ -1,16 +1,16 @@
 # My other repositories:
 
-## [patchwork](https://github.com/abelkalamar/patchwork.git)
+### * [patchwork](https://github.com/abelkalamar/patchwork.git)
 
-## [git-lesson-repository](https://github.com/abelkalamar/git-lesson-repository.git)
+### * [git-lesson-repository](https://github.com/abelkalamar/git-lesson-repository.git)
 
-## [hello-world](https://github.com/abelkalamar/hello-world.git)
+### * [hello-world](https://github.com/abelkalamar/hello-world.git)
 
-## [website-repos](https://github.com/abelkalamar/abelkalamar.github.io.git)
+### * [website-repos](https://github.com/abelkalamar/abelkalamar.github.io.git)
 
 
 # Our lovely syllabus
 
-## [really-syllabus](https://github.com/green-fox-academy/really-syllabus.git)
+### * [really-syllabus](https://github.com/green-fox-academy/really-syllabus.git)
 
-# My [website](https://abelkalamar.github.io/)
+## My first _[website]_(https://abelkalamar.github.io/)
