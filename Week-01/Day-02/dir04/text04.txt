@@ -2,3 +2,7 @@ well, this is the fourth
 stay cool, it's almost over
 
 just kidding, I do enjoy it a lot 
+
+okay, let's see what 'git diff --coached' does
+
+omnomnomnom
