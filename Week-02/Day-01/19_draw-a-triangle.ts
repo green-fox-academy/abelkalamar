@@ -1,4 +1,5 @@
 'use strict';
+export {}
 
 let lineCount: number = 30;
 
