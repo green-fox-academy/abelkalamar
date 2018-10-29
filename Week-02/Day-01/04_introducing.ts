@@ -3,9 +3,9 @@
 // Write a program that prints a few details to the console about you
 // It should print each detail to a new line.
 
-let myName = "Abel Kalamar";
-let myAge = 25;
-let myHeight = 1.73 
+let myName: string = "Abel Kalamar";
+let myAge: number = 25;
+let myHeight: number = 1.73;
 
 // Output
 console.log(myName);

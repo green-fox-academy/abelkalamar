@@ -2,8 +2,8 @@
 
 // Create a program that prints a few operations on two numbers: 22 and 13
 
-let a = 13;
-let b = 22;
+let a: number = 13;
+let b: number = 22;
 
 // Print the result of 13 added to 22
 

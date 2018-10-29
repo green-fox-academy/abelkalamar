@@ -9,11 +9,11 @@
 // Print the percentage of the coding hours in the semester if the average
 // work hours weekly is 52
 
-let dailyCode = 6;
-let weeks = 17;
-let workdays = 5;
+let dailyCode: number = 6;
+let weeks: number = 17;
+let workdays: number = 5;
 
-let codingHours = dailyCode * weeks * workdays;
+let codingHours: number = dailyCode * weeks * workdays;
 
 console.log("Coding hours in a semester = " + codingHours);
 console.log("We spend " + codingHours / (17 * 52) * 100 + "% of our time with coding.");
