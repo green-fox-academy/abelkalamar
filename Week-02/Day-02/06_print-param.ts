@@ -2,8 +2,8 @@
 //    which logs to the console the input parameters
 //    (can have multiple number of arguments)
 
-function printParams(nums: number[]){
+function printParams(...nums: number[]){
     console.log(nums);
 }
 
-printParams([5,6,7,8]);
+printParams(56, 77, 888,34, 54);
