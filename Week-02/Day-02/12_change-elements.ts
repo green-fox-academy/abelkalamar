@@ -4,6 +4,7 @@
 
 let numList: number[] = [1, 2, 3, 8, 5, 6];
 
+/*
 function change8(array: number[]) {
     for (let i: number = 0; i < array.length; i ++){
         if(array[i] == 8){
@@ -15,9 +16,15 @@ return array;
 }
 console.log(change8(numList));
 
-
-/* let newlist: number[] = numList.map(change8){
-
-
-console.log(newList[4]); 
 */
+
+let newlist = numList.map(function(e){
+    if(e == 8){
+         return e = 4;
+    } else {
+        return e;
+    } 
+})
+
+console.log(newlist[3]);
+
