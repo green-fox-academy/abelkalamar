@@ -14,34 +14,30 @@ export { }
 // * size should depend on a variable
 // ** Relax, a matrix is just like an array
 
-let cols: number = 4;
-let rows: number = 4;
+let cols: number = 5;
+let rows: number = 5;
 
 let matrix = [];
-
-function drawMatrix(cols){
 
     for (let i: number = 0; i < cols; i++){
 
         matrix [i] = 0;
 
-        /*for ( let j: number = 0; j < rows; i++){
-            matrix[i][j] = 0;
-            console.log(i);
-            console.log(j);
-        }*/
+        for ( let j: number = 0; j < rows; i++){
+            matrix[i] = 0;
+            
+        }
     }
-}
+
 /*
 for (let i: number = 0; i < size; i++) {
     matrix[i].push(0);
 }
 
-*/
-
 for (let i: number = 0; i < matrix.length; i++) {
     console.log(matrix[i]);
 }
+*/
 
 
 
