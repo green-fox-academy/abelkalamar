@@ -17,16 +17,19 @@ export { }
 let cols: number = 4;
 let rows: number = 4;
 
-let matrix: number[] = [];
+let matrix = [];
 
 function drawMatrix(cols){
 
     for (let i: number = 0; i < cols; i++){
-        for ( let j: number = 0; j < rows; i++){
+
+        matrix [i] = 0;
+
+        /*for ( let j: number = 0; j < rows; i++){
             matrix[i][j] = 0;
             console.log(i);
             console.log(j);
-        }
+        }*/
     }
 }
 /*
