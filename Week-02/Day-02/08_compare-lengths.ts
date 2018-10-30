@@ -10,7 +10,7 @@ let firstList: number[] = [1,2,3];
 let secondList: number[] = [4,5,4,7];
 
 function isLonger(a: number[], b: number[]) {
-    console.log(a.length > b.length);
+    console.log(a.length < b.length);
 }
 
 isLonger(firstList, secondList);

@@ -1,11 +1,6 @@
 // -  Create a variable named `r` with the following content: `[54, 23, 66, 12]`
 // -  Print the sum of the second and the third element
 
-/*let r: number[] = [54, 23, 66, 12].filter(function(e) {
-    return e % 2 == 0 ;
-})
-
-console.log(r); */
 
 let r: number[] = [54, 23, 66, 12];
 

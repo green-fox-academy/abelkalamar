@@ -5,9 +5,11 @@
 
 let integers: number[] = [4, 5, 6, 7];
 
-integers.forEach(function(element) {
-    console.log(element);
-  });
+function printAll(array: number[]){
+    for (let i: number = 0; i < array.length; i ++){
+        console.log(array[i]);
+    }
+    
+}
 
-
-  
+printAll(integers);
