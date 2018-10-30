@@ -9,4 +9,4 @@ function printParams(...nums){
     
 }
 
-printParams(56, 77, 888,34, 54);
+printParams(56, 77, "HELLO ",34, 54);
