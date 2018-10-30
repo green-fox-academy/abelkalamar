@@ -14,30 +14,25 @@ export { }
 // * size should depend on a variable
 // ** Relax, a matrix is just like an array
 
-let cols: number = 5;
-let rows: number = 5;
+let size: number = 9;
+
 
 let matrix = [];
 
-    for (let i: number = 0; i < cols; i++){
+    for (let i: number = 0; i < size; i++){
 
-        matrix [i] = 0;
+        matrix.push([]);
 
-        for ( let j: number = 0; j < rows; i++){
-            matrix[i] = 0;
-            
+        matrix[i].push([]);
+           
+         for ( let j: number = 0; j < size; j++){
+            if (i + j == (size - 1)) {
+                matrix[i][j] = 1;
+            } else {
+            matrix[i][j] = 0;
+                }
         }
     }
 
-/*
-for (let i: number = 0; i < size; i++) {
-    matrix[i].push(0);
-}
-
-for (let i: number = 0; i < matrix.length; i++) {
-    console.log(matrix[i]);
-}
-*/
-
-
+console.log(matrix);
 
