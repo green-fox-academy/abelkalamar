@@ -1,5 +1,5 @@
-"use strict"
+'use strict'
 
-console.log("Hello, David!");
-console.log("Hello, Marci!");
-console.log("Hello, Viktor!");
+console.log(`Hello, David!`);
+console.log(`Hello, Marci!`);
+console.log(`Hello, Viktor!`);

@@ -14,16 +14,15 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-rl.question("Gimme a number! ", function(answer) {
-    
+rl.question('Gimme a number! ', function (answer) {
+
   rl.close();
   console.log(answer);
-  for (var i = 1; i <= answer; i ++){
-        rl.question("Gimme the " + i + ". number!", function(firstNum) {
-        console.log(firstNum);
-        rl.close();
-        
-        });
-    }
-}); 
+  for (var i = 1; i <= answer; i++) {
+    rl.question('Gimme the ' + i + '. number!', function (firstNum) {
+      console.log(firstNum);
+      rl.close();
+    });
+  }
+});
 

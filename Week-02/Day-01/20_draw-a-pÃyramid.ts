@@ -1,5 +1,5 @@
 'use strict';
-export {}
+export { };
 
 let lineCount: number = 30;
 
@@ -13,14 +13,12 @@ let lineCount: number = 30;
 //
 // The pyramid should have as many lines as lineCount is
 
-let star: string = "*";
-let spaceNum: number = lineCount
+let star: string = '*';
+let spaceNum: number = lineCount;
 
-
-for ( let i:number = 1; i <= lineCount; i ++){
-
-    let spc: string = (" ").repeat(spaceNum);
-    console.log(spc + star);
-    star += "**";
-    spaceNum --;
+for (let i: number = 1; i <= lineCount; i++) {
+  let spc: string = (' ').repeat(spaceNum);
+  console.log(spc + star);
+  star += '**';
+  spaceNum--;
 }

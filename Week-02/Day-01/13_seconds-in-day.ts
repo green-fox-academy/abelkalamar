@@ -1,4 +1,5 @@
 'use strict';
+export { };
 
 let currentHours: number = 14;
 let currentMinutes: number = 34;
@@ -9,5 +10,5 @@ let currentSeconds: number = 42;
 
 let remSec: number = (24 - currentHours) * 3600 + (60 - currentMinutes) * 60 + (60 - currentSeconds);
 
-console.log("Remaining seconds from the day: " + remSec + " seconds");
+console.log(`Remaining seconds from the day: ${remSec} seconds.`);
 

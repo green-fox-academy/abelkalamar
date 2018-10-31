@@ -1,10 +1,10 @@
 'use strict';
+export { };
 
 // Define several things as a variable, then print their values
-
 // Your name as a string
 
-let myName: string = "Abel Kalamar";
+let myName: string = 'Abel Kalamar';
 
 // Your age as an integer
 
