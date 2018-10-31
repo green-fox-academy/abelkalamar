@@ -14,8 +14,7 @@ export { };
 // * size should depend on a variable
 // ** Relax, a matrix is just like an array
 
-let size: number = 9;
-
+let size: number = 10;
 let matrix = [];
 
 for (let i: number = 0; i < size; i++) {

@@ -1,8 +1,6 @@
 'use strict';
 export { };
 
-let lineCount: number = 30;
-
 // Write a program that draws a
 // pyramid like this:
 //
@@ -13,6 +11,7 @@ let lineCount: number = 30;
 //
 // The pyramid should have as many lines as lineCount is
 
+let lineCount: number = 10;
 let star: string = '*';
 let spaceNum: number = lineCount;
 

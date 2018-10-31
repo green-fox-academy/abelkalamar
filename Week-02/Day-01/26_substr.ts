@@ -6,7 +6,7 @@ export {}
 //  Returns `-1` if the second string is not in the first one
 
 
-function subStr(str: string, keyword: string) : number {
+function subStr(str: string, keyword: string): number {
     if (str.indexOf(keyword) !== -1){
         return str.indexOf(keyword);
     } else return -1;
