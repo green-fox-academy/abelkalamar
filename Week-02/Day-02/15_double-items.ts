@@ -1,4 +1,5 @@
-"use strict"
+'use strict'
+export { };
 
 // -  Create an array variable named `drinks` with the following content: `['Gin', 'Whiskey', 'Wine', 'Beer']`
 // -  Double all the strings in the array, use a built in array method instead of a loop
@@ -6,7 +7,7 @@
 
 let drinks: string[] = ["Gin", "Whiskey", "Wine", "Beer"];
 
-drinks.forEach((element, index, array)=> {
+drinks.forEach((element, index, array) => {
     array[index] = element + element;
 })
 
