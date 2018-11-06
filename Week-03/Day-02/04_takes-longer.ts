@@ -4,13 +4,14 @@ export { };
 // When saving this quote a disk error has occured. Please fix it.
 // Add "always takes longer than" to between the words "It" and "you"
 
-let quote: any = 'Hofstadter\'s Law: It you expect, even when you take into account Hofstadter\'s Law.'
+let quote: string = 'Hofstadter\'s Law: It you expect, even when you take into account Hofstadter\'s Law.'
 
-function repair(str: string): string {
-  str = quote.replace('It', 'It always takes longer than');
-  return str
-}
+// 1st SOLUTION
+quote = quote.replace('It', 'It always takes longer than');
 
-quote = repair(quote);
+// 2nd SOLUTION
+let quoted: any = quote.split('It');
 
-console.log(quote);
+quoted.splice(1, 0, 'It always takes longer than');
+
+console.log(quoted.join(''));
