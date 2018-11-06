@@ -14,12 +14,12 @@ export { };
 
 let todoText: string = ' - Buy milk\n';
 let secondTodo: string = ' - Download games\n'
-let subTodo: string = '     - Diablo\n'
+let subTodo: string = '\t- Diablo\n'
 
 todoText = `My todo:\n ${todoText} ${secondTodo} ${subTodo}`;
 
 //let abc: string = 'hello';
 
-//abc = abc.padStart(5, )
+//abc = abc.padStart(15, "" )
 
 console.log(todoText);
