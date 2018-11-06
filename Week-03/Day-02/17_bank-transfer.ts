@@ -10,7 +10,7 @@ const accounts: any[] = [
 // Create function that returns the name and balance of cash on an account in a list
 // getNameAndBalance(11234543);
 // should return: ['Igor', 203004099.2]
-
+/*
 function getNameAndBalance(arr: any, accountNumber: number): any[] {
   let client: any[] = [];
   for (let i: number = 0; i < arr.length; i++) {
@@ -21,9 +21,8 @@ function getNameAndBalance(arr: any, accountNumber: number): any[] {
   }
   return client;
 }
-
 console.log(getNameAndBalance(accounts, 23456311));
-
+*/
 // Create function that transfers an amount of cash from one account to another
 // it should have four parameters:
 //  - the accounts
@@ -35,7 +34,15 @@ console.log(getNameAndBalance(accounts, 23456311));
 
 
 function transferAmount(acc: any[], fromAcc: number, toAcc: number, amount: number) { 
+  let accNums: number[] = [];
+  for (let j: number = 0; j < acc.length; j++) {
+    accNums.push(acc[j].accountNumber);
+  }
   for (let i: number = 0; i < acc.length; i++) {
+    if(!accNums.includes(fromAcc) || !accNums.includes(toAcc)) {
+      console.log('404 - account not found');
+      break;
+    }
     if(acc[i].accountNumber === fromAcc) {
       acc[i].balance -= amount;
     }
@@ -45,8 +52,8 @@ function transferAmount(acc: any[], fromAcc: number, toAcc: number, amount: numb
   }
 }
 
-transferAmount(accounts, 43546731, 23456311, 10000.0);
-console.log(accounts);
+transferAmount(accounts, 43346731, 23456311, 10000.0);
+
 
 //After printing the "accounts" it should look like:
 // const accounts = [

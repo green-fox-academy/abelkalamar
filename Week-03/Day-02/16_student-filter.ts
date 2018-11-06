@@ -30,9 +30,9 @@ moreThan4(students);
 function averageCandy(arr: any[]) {
   let candies: number = 0;
   for (let i: number = 0; i < arr.length; i++) {
-    candies += arr[i].candies;    
+    candies += arr[i].candies;
   }
-  console.log(`They have ${candies/(arr.length - 1)} candies on average.`);
+  console.log(`They have ${candies / (arr.length - 1)} candies on average.`);
 }
-
 averageCandy(students);
+

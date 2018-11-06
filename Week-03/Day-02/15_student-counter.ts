@@ -12,8 +12,6 @@ const students: any[] = [
 // create a function that takes a list of students and logs: 
 // - how many candies are owned by students
 
-
-
 function candiesOfStudents(arr: any[]) {
   for (let i: number = 0; i < arr.length; i++) {
     console.log(Object.values(arr[i])[0] + ' has ' + Object.values(arr[i])[2] + ' candies.')
@@ -21,10 +19,8 @@ function candiesOfStudents(arr: any[]) {
 }
 candiesOfStudents(students);
 
-
 // create a function that takes a list of students and logs:
 // - Sum of the age of people who have lass than 5 candies
-
 
 function sumOfAges(arr: any[]) {
   let age: number = 0;
@@ -37,4 +33,16 @@ function sumOfAges(arr: any[]) {
 }
 sumOfAges(students);
 
-
+// Solution with forEach: not working yet :(
+/*
+function sumOfAges2(arr: any[]): string {
+  let age: number = 0;
+  arr.forEach(function(e, i, a) {
+    if(a[i][2] < 5){
+      age += e.age;
+    }
+  });
+  return `Sum of the age of people who has less then 5 candies is ${age}.`;
+}
+console.log(sumOfAges2(students));
+*/
