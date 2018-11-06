@@ -8,12 +8,11 @@ let boys: string[] = ['Joe', 'Fred', 'Tom', 'Todd', 'Neef', 'Jeff'];
 
 function makingMatches(arr1: string [], arr2: string[]): string[] {
   let matches: string[] = [];
-  for( let i: number = 0; i < arr1.length; i++){
+  for( let i: number = 0; i < arr2.length; i++){
+    if(arr1[i]){
     matches.push(girls[i])
-    for( let j: number = 0; j < arr2.length; j++){
-      matches.push(boys[i])
-      break;
     }
+    matches.push(boys[i])
   }
   return matches;
 }
