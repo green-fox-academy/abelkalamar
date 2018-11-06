@@ -19,15 +19,18 @@ let hashmap = {
   3: 'say goodbye '
 };
 
-console.log(Object.keys(hashmap));
+console.log(hashmap[notSoCrypticMessage[3]]);
 
-/*
-function createMessage(arr: number[], {obj}): string[] {
+let message: any[] = [];
+
+function createMessage(arr: number[], obj: any) {
   for (let i: number = 0; i < arr.length; i++) {
-    if (arr[i] == obj.keys)
+    if (+Object.keys(obj)[i] === arr[i]) {
+      message.push(obj[arr[i]]);
+    }
   }
-  return
+  console.log(message);
 }
-*/
 
-console.log(out)
+createMessage(notSoCrypticMessage, hashmap);
+
