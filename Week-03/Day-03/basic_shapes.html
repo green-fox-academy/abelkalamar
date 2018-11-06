@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas</title>
+</head>
+<body>
+
+  <canvas id='canvas' style='border: 1px solid; width: 800px; height: 600px;'>
+    Sorry, your browser does not support the canvas tag.
+  </canvas>
+
+  <script>
+    
+    let canvas = document.getElementById('canvas');
+
+    canvas.width = canvas.scrollWidth;
+    canvas.height = canvas.scrollHeight;
+
+    let ctx = canvas.getContext('2d');
+    
+    ctx.beginPath();
+    ctx.moveTo(100, 100);
+    ctx.lineTo(200, 100);
+    ctx.moveTo(100, 200);
+    ctx.lineTo( 50, 100);
+
+    ctx.strokeStyle = 'green';
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(400, 100);
+    ctx.lineTo(500, 100);
+    ctx.lineTo(400, 200);
+    ctx.lineTo(350, 100);
+
+    ctx.fillStyle = 'green';
+    ctx.fill();
+    
+  </script>
+  
+</body>
+</html>
