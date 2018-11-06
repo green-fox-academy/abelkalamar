@@ -23,10 +23,10 @@ const queue: any[] = [
 
 let canEnter: string[] = [];
 function securityCheck(arr: any[]): any[] {
-  for(let i: number = 0; i < arr.length; i++) {
-    if(arr[i].alcohol === 0 && arr[i].guns === 0){
+  for (let i: number = 0; i < arr.length; i++) {
+    if (arr[i].alcohol === 0 && arr[i].guns === 0) {
       canEnter.push(arr[i].name);
-    } else if (arr[i].guns !== 0){
+    } else if (arr[i].guns !== 0) {
       watchlist.push(arr[i].name);
       securityAlcoholLoot += arr[i].alcohol;
     } else if (arr[i].alcohol !== 0 && arr[i].guns === 0) {
