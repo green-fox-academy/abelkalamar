@@ -5,6 +5,6 @@
 
 let url: string = 'https//www.reddit.com/r/nevertellmethebots';
 
-url = `https:${url.slice(5, -4)}bots`;
+url = `https:${url.slice(5, -4)}odds`;
 
 console.log(url);
