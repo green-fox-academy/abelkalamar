@@ -24,7 +24,18 @@ let x: number = 0;
 let y: number = 0;
 let lineDistance: number = 20;
 
-for (let i: number = 0; i <= (canvas.width / lineDistance) ; i++) {
+// Nicest solution: 
+
+for (let i: number = 0; i <= (canvas.width) ; i += lineDistance) {
+  for (let j: number = 0; j <= (canvas.height) ; j += lineDistance) {
+    if (i === 0 || i === canvas.width || j === 0 || j === canvas.height) {
+      drawToCenter(i, j);
+    }
+}
+
+// Not so ugly solution:
+/*
+for (let i: number = 0; i <= (canvas.width) ; i += lineDistance) {
   if (x <= canvas.width) {
     drawToCenter(x, 0);
     drawToCenter(x, canvas.height);
@@ -36,6 +47,7 @@ for (let i: number = 0; i <= (canvas.width / lineDistance) ; i++) {
   x += lineDistance;
   y += lineDistance;
 }
+*/
 
 // Ugly solution:
 /*
