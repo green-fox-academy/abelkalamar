@@ -16,7 +16,7 @@ let colors: string[] = ['green', 'yellow', 'red', 'purple', 'blue'];
 function drawLine(x: number, y: number) {
   ctx.beginPath();
   ctx.moveTo(x, y);
-  ctx.lineTo(canvas.width/2, canvas.height/2);
+  ctx.lineTo(canvas.width / 2, canvas.height / 2);
   ctx.strokeStyle = colors[Math.floor(Math.random() * (colors.length - 1))];
   ctx.stroke();
 }
