@@ -51,7 +51,7 @@ function tablePrinter(arr: any[]) {
       console.log(`${c}${' Ingredient '.padEnd(col1Width, ' ')}${c} Needs cooling ${c} In stock ${c}`);
     } else {
       console.log(
-        `${c} ${arr[i - 3].name.padEnd(col1Width - 1, ' ')}${c}${cooling[i - 3].padEnd(col2Width, ' ')}${c}${storage[i - 3].padEnd(col3Width, ' ')}${c} `)
+        `${c} ${arr[i - 3].name.padEnd(col1Width - 1, ' ')}${c} ${cooling[i - 3].padEnd(col2Width - 1, ' ')}${c} ${storage[i - 3].padEnd(col3Width - 1, ' ')}${c} `)
     }
   }
 }
