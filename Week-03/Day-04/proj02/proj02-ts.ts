@@ -6,26 +6,41 @@ const ctx = canvas.getContext('2d');
 ctx.fillStyle = 'white';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+//ctx.scale(0.5, 0.5);
 
-function drawIt(lineDistance: number, color: string, direction: number): void {
-  ctx.strokeStyle = color;
+function drawLines(lineDistance: number, color: string, direction: number): void {
   ctx.beginPath();
-  let startX: number = 0;
-  let startY: number = 0;
-  let parts: number = 4;
-  let newWidth = canvas.width / parts * 2;
-  let newHeight = canvas.height / parts * 2;
-  let newLineDist = lineDistance / parts * 2;  
-  for (let i: number = 0; i < newWidth; i += newLineDist) {
+  ctx.strokeStyle = color;
+  for (let i: number = 0; i < canvas.width; i += lineDistance) {
     if (direction === 1) {
       ctx.moveTo(i, 0);
-      ctx.lineTo(newWidth, i);
+      ctx.lineTo(canvas.width, i);
     } else {
-    ctx.moveTo(0, i);
-    ctx.lineTo(i, newHeight);
+      ctx.moveTo(0, i);
+      ctx.lineTo(i, canvas.height);
     }
   }
   ctx.stroke();
 }
-drawIt(30, 'purple', 1);
-drawIt(30, 'green', 2);
+
+function multyLines(num: number, color1: string, color2:string, lineDistance: number) {
+  ctx.scale(1 / num, 1 / num);
+  let w: number = canvas.width;
+  let h: number = canvas.height;
+  let y: number = 0;
+  for(let i: number = 0; i < num; i++) {
+    console.log('i:' + i);
+    for (let j: number = 0; j < num; j++ ) {
+      console.log('j:' + j);
+      drawLines(lineDistance, color1, 1);
+      drawLines(lineDistance, color2, 2);
+      ctx.translate(w, y);
+    }
+    y += h / num;
+    w = 0;
+  }
+}
+
+multyLines(3, 'green', 'purple', 30);
+
+
