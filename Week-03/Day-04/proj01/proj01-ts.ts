@@ -9,7 +9,7 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 function drawIt(lineDistance: number, color: string, direction: number): void {
   ctx.strokeStyle = color;
   ctx.beginPath();
-  for (let i: number = 0; i < canvas.width * 2; i += lineDistance) {
+  for (let i: number = 0; i < canvas.width; i += lineDistance) {
     if (direction === 1) {
       ctx.moveTo(i, 0);
       ctx.lineTo(canvas.width, i);
