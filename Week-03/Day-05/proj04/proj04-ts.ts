@@ -7,19 +7,39 @@ ctx.fillStyle = 'white';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 //ctx.translate(canvas.width / 2, canvas.height / 2);
 
+/* let startX: number = w / 2;
+let startY: number = 20; */
+let w: number = canvas.width;
 
-function drawTriangle(starX: number, starY: number, size: number) {
-  let m: number = size / 2 * (Math.tan(60/(180/Math.PI)));
+function drawTriangle(startX: number, startY: number, size: number): void {
+  let m: number = size / 2 * (Math.tan(60 / (180 / Math.PI)));
   ctx.beginPath()
-  ctx.moveTo(starX, starY);
-  ctx.lineTo(size / 2, m);
-  ctx.lineTo(- size, 0);
-  ctx.lineTo(size / 2, - m);
-  ctx.stroke(); 
-  console.log(m);
+  ctx.moveTo(startX, startY);
+  ctx.lineTo((startX + size / 2), (startY + m));
+  ctx.lineTo(startX - size / 2, (startY + m));
+  ctx.lineTo(startX, startY);
+  ctx.stroke();
 }
 
-drawTriangle(250, 50, 50);
+//drawTriangle(250, 50, 20);
+
+
+function multiplyTriangle(startX: number, startY: number, size: number, rows: number,){
+  let m: number = size / 2 * (Math.tan(60 / (180 / Math.PI)));
+  for (let i = 0; i <= rows; i++) {
+    for (let j = 0; j <= i; j++) {
+      drawTriangle(startX, startY, size);
+      startX += size;
+      console.log('x:' + startX);
+    } 
+    startX -= ((i + 1) * size + (size / 2));
+    startY += m;
+    console.log('y:' + startY);
+  }
+}
+
+multiplyTriangle(250, 100, 20, 15);
+
 
 
 /*                  
