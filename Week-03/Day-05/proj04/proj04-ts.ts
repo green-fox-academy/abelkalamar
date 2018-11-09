@@ -24,12 +24,9 @@ function multiplyTriangle(startX: number, startY: number, size: number, rows: nu
     for (let j = 0; j <= i; j++) {
       drawTriangle(startX, startY, size);
       startX += size;
-      console.log('x:' + startX);
     } 
     startX -= ((i + 1) * size + (size / 2));
     startY += m;
-    console.log('y:' + startY);
   }
 }
-
 multiplyTriangle(250, 100, 20, 15);
