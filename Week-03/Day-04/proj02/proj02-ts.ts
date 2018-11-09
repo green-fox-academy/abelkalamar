@@ -3,16 +3,11 @@
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-// just for white background
-//ctx.fillStyle = 'white';
-//ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-// draw the lines
-
+// draw the figures
 function drawLines(lineDistance: number, color: string, direction: number): void {
   ctx.beginPath();
   ctx.strokeStyle = color;
-  for (let i: number = 0; i < canvas.width; i += lineDistance) {
+  for (let i: number = 0; i <= canvas.width; i += lineDistance) {
     if (direction === 1) {
       ctx.moveTo(i, 0);
       ctx.lineTo(canvas.width, i);
@@ -23,6 +18,8 @@ function drawLines(lineDistance: number, color: string, direction: number): void
   }
   ctx.stroke();
 }
+//drawLines(30, 'black', 1);
+//drawLines(30, 'blue', 2);
 
 function multyLines(num: number, color1: string, color2: string, lineDistance: number) {
   ctx.scale(1 / num, 1 / num);
@@ -37,7 +34,6 @@ function multyLines(num: number, color1: string, color2: string, lineDistance: n
     ctx.translate(- num * w, h);
   }
 }
+multyLines(5, 'aqua', 'orange', 10);
 
-multyLines(6, 'blue', 'green', 30);
-
-
+ 
