@@ -36,3 +36,11 @@ function decode(arr: number[], obj: any) {
 }
 
 decode(notSoCrypticMessage, hashmap);
+
+
+/*
+//hm
+notSoCrypticMessage.forEach((element) => { out += hashmap[element] });
+
+console.log( out);
+*/
