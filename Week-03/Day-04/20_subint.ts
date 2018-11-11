@@ -11,7 +11,12 @@ export { };
 //console.log(subint(9, [1, 11, 34, 52, 61]));
 // should print: '[]'
 
-function subint(num: number, arr: number[]): number[] {
+let array: number[] = [0, 24, 34, 52, 63];
+let num: number = 1;
+
+/* Solution with for loop:
+
+const subint = (num: number, arr: number[]): number[] => {
   let indeces: number[] = [];
   for (let i: number = 0; i < arr.length; i++) {
     if (arr[i].toString().includes(num.toString())) {
@@ -21,3 +26,18 @@ function subint(num: number, arr: number[]): number[] {
   return indeces;
 }
 console.log(subint(1, [23, 44, 34, 52, 66]));
+*/
+
+// Solution with .forEach():
+
+const subInt = (num: number, arr: number[]): number[] => {
+  let indeces: number[] = [];
+  array.forEach(function (e, i, a) {
+    if (e.toString().includes(num.toString())) {
+      indeces.push(i);
+    }
+  });
+  return indeces;
+}
+console.log(subInt(num, array));
+
