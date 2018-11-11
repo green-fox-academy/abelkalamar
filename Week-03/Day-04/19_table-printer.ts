@@ -16,7 +16,7 @@ export { };
 // OPTIONAL
 // The frist columns should be automatically as wide as the longest key
 
-function tablePrinter(arr: any[]) {
+const tablePrinter = (arr: any[]): void => {
   let a: string = '+';
   let b: string = '-';
   let c: string = '|';
