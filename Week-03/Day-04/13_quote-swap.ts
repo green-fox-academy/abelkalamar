@@ -10,14 +10,13 @@ export { };
 
 let words: string[] = ['What', 'I', 'do', 'create,', 'I', 'cannot', 'not', 'understand.'];
 
-function quoteSwap(arr: string[]) {
+const quoteSwap = (arr: string[]): string => {
   let a: number = 2;
   let b: number = 5;
   arr[a] = arr.splice(b, 1, arr[a])[0];
-  console.log(arr.join(' '));
+  return arr.join(' ');
 }
-
-quoteSwap(words);
+console.log(quoteSwap(words));
 
 // Expected output: "What I cannot create I do not understand."
 
