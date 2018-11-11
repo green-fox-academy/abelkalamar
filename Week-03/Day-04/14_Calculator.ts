@@ -19,15 +19,13 @@ export { };
 // Else print the result
 // Say goodbye
 
-const args = process.argv.splice(2); // Just a helper for you to get started
+const args = process.argv.splice(2); 
 
-//console.log('Input params are', args);
-
-function calculate(a: string[]) {
+const calculate = (a: string[]): any => {
   if (args.length !== 3) {
-    console.log('Please add 3 arguments.')
+    console.log('Please add exactly 3 arguments.')
   }
-  switch(a[0]) {
+  switch (a[0]) {
     case '+' || '-':
       return eval(a[1] + a[0] + a[2]);
     case 'multiply':
@@ -38,7 +36,7 @@ function calculate(a: string[]) {
       return +a[1] % +a[2];
   }
 }
-console.log(calculate(args));
+console.log(`${calculate(args)}\nGoodbye `);
 
 
 
