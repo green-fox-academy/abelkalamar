@@ -8,7 +8,9 @@ const numbers: number[] = [1, 2, 3, 7, 5, 6, 8];
 // The output should be: "Noooooo"
 // Do this again with a different solution using different list functions!
 
-function containsSeven(arr: number[]): string {
+//1st solution with for loop:
+
+const containsSeven = (arr: number[]): string => {
   let answer: string = 'Noooooo';
   for(let i: number = 0; i < arr.length; i++){
     if(arr[i] === 7){
@@ -19,4 +21,24 @@ function containsSeven(arr: number[]): string {
 }
 console.log(containsSeven(numbers));
 
-export = containsSeven;
+//2nd solution with .some() method: 
+const contains7 = (arr: number[]): string => {
+  if (arr.some(e => e === 7)){
+    return 'Hoorray';
+  } else {
+    return 'Noooooo';
+  }
+}
+console.log(contains7(numbers));
+
+//3nd solution with .indexOf() method: 
+const isItContains7 = (arr: number[]): string => {
+  if (arr.indexOf(7) !== -1){
+    return 'Hoorray';
+  } else {
+    return 'Noooooo';
+  }
+}
+console.log(isItContains7(numbers));
+
+export = contains7;
