@@ -12,7 +12,7 @@ export { };
 //console.log(substrlist('not', ['this', 'is', 'what', 'I\'m', 'searching', 'in']));
 //  should print: `-1`
 
-function substrlist(str: string, arr: string[]): number {
+const substrlist = (str: string, arr: string[]): number => {
   let indeces: number = -1;
   for (let i: number = 0; i < arr.length; i++) {
     if (arr[i].includes(str)) {
