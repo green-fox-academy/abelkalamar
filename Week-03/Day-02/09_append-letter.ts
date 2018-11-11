@@ -5,8 +5,8 @@
 
 let far: string[] = ['bo', 'anacond', 'koal', 'pand', 'zebr'];
 
-function appendA(str: string[]): string[] {
-  str.forEach(function(e, i, a) {
+const appendA = (str: string[]): string[] => {
+  str.forEach(function (e, i, a) {
     a[i] = e + 'a';
   });
   return str;
