@@ -12,10 +12,10 @@ const numbers: number[] = [1, 2, 3, 7, 5, 6, 8];
 
 const containsSeven = (arr: number[]): string => {
   let answer: string = 'Noooooo';
-  for(let i: number = 0; i < arr.length; i++){
-    if(arr[i] === 7){
+  for (let i: number = 0; i < arr.length; i++) {
+    if (arr[i] === 7) {
       answer = 'Hoorray'
-    } 
+    }
   }
   return answer;
 }
@@ -23,7 +23,7 @@ console.log(containsSeven(numbers));
 
 //2nd solution with .some() method: 
 const contains7 = (arr: number[]): string => {
-  if (arr.some(e => e === 7)){
+  if (arr.some(e => e === 7)) {
     return 'Hoorray';
   } else {
     return 'Noooooo';
@@ -33,7 +33,7 @@ console.log(contains7(numbers));
 
 //3nd solution with .indexOf() method: 
 const isItContains7 = (arr: number[]): string => {
-  if (arr.indexOf(7) !== -1){
+  if (arr.indexOf(7) !== -1) {
     return 'Hoorray';
   } else {
     return 'Noooooo';
