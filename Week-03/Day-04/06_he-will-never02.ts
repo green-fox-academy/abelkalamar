@@ -21,7 +21,7 @@ let hashmap = {
 
 //console.log(Object.values(hashmap));
 
-function decode(arr: number[], obj: any) {
+const decode = (arr: number[], obj: any): string => {
   let keys: string[] = Object.keys(obj);
   let str: string[] = Object.values(obj);
   let message: string = '';
@@ -32,15 +32,12 @@ function decode(arr: number[], obj: any) {
       }
     }
   }
-  console.log(message);
+  return message;
 }
 
-decode(notSoCrypticMessage, hashmap);
-
+console.log(decode(notSoCrypticMessage, hashmap));
 
 /*
-//hm
-notSoCrypticMessage.forEach((element) => { out += hashmap[element] });
+notSoCrypticMessage.forEach((element) => { out += hashmap[element].toString() });
 
-console.log( out);
-*/
+console.log( out);*/
