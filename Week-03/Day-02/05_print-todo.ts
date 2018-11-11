@@ -18,8 +18,4 @@ let subTodo: string = '\t- Diablo\n'
 
 todoText = `My todo:\n ${todoText} ${secondTodo} ${subTodo}`;
 
-//let abc: string = 'hello';
-
-//abc = abc.padStart(15, "" )
-
 console.log(todoText);
