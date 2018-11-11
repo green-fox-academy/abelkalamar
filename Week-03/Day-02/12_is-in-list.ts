@@ -4,7 +4,9 @@
 // Create a function that accepts 'listOfNumbers' as an input
 // it should return "true" if it contains all, otherwise "false"
 
-let listOfNumbers: number[] = [2, 4, 6, 8, 10, 11, 14, 16];
+let listOfNumbers: number[] = [2, 4, 6, 8, 10, 12, 14, 16];
+
+/* Ugly solution:
 
 function checkNums(arr: number[]): boolean {
   let answer: boolean = false;
@@ -30,5 +32,14 @@ function checkNums(arr: number[]): boolean {
   return answer;
 }
 console.log(checkNums(listOfNumbers));
+*/
 
+const checkNums = (arr: number[]): boolean => {
+  if (arr.indexOf(4) !== -1 && arr.indexOf(8) !== -1 && arr.indexOf(12) !== -1 && arr.indexOf(16) !== -1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(checkNums(listOfNumbers));
 export = checkNums;
