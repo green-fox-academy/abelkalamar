@@ -17,16 +17,22 @@ function readFromFile(filename: string): string {
 }
 
 function uniqIPs(fileName: string): number[] {
-  let content = readFromFile(fileName).split("   ");
+  let content: string[] = readFromFile(fileName).split("   ");
+  let uniqIP: any[] = [];
   let IPs: any[] = [];
   if (content !== null) {
     content.forEach(function (e, i) {
       if (i % 2 === 1) {
         IPs.push(e);
       }
-    })
+    });
+    IPs.forEach(function(e,i) {
+      if (i === IPs.indexOf(e)) {
+        uniqIP.push(e);
+      }
+    });
   }
-  return IPs;
+  return uniqIP;
 }
 console.log(uniqIPs('log.txt'));
 
@@ -45,4 +51,4 @@ function getPost(fileName: string): number {
   }
   return gets / posts;
 }
-console.log(getPost('log.txt'));
+console.log(`Gets / Posts: ${getPost('log.txt')}`);
