@@ -19,16 +19,28 @@ function readFromFile(filename: string): string {
 function result(fileName: string) {
   let content: string[] = readFromFile(fileName).split('\r\n');
   let res: any[][] = [];
+  let rows: number[] = [];
   if (content !== null) {
-    for (let i:number = 0; i < content.length; i++) {
+    for (let i: number = 0; i < content.length; i++) {
       res.push(content[i].split(''));
     }
-    
+    if (res[0][0] === res[1][1] === res[2][2] || res[0][2] === res[1][1] === res[2][0]) {
+      console.log(res[1][1]);
+      return res[1][1];
+    } /*else {
+      for (let i: number = 0; i < res.length; i++) {
+        if (res[i].every(e => e === 'X' || e === 'O')) {
+          return res[i][0];
+        }
+      }
+  }*/
   }
-  console.log(res);
+  console.log(res[0][0]);
+  console.log(res[1][1]);
+  console.log(res[2][2]);
 }
 
-result('win-o.txt');
+console.log(result('win-X.txt'));
 
 
 
