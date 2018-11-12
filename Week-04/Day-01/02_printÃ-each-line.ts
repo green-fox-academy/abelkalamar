@@ -11,7 +11,7 @@ const fs = require('fs');
 const readFromFile = (filename: string): string => {
   try {
     return fs.readFileSync(filename, 'utf-8');
-  } catch(e) {
+  } catch (e) {
     console.log(`Unable to read file: ${filename}`);
     return null;
   }
@@ -23,14 +23,6 @@ const printLines = (file: string) => {
     fileContent.split("\n\t").forEach(e => {
       console.log(e);
     });
-  } 
+  }
 }
-
 printLines('my-file.txt');
-
-
-
-
-
-
-
