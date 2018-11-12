@@ -9,13 +9,13 @@ let fs = require('fs');
 
 function readFromFile(fileName: string): string {
   try {
-    return fs.readFileSync(fileName);
-  } catch(e) {
+    return fs.readFileSync(fileName, 'utf-8');
+  } catch (e) {
     return null;
   }
 }
 
-function writeIntoFile(file: string, data: string) {
+function writeIntoFile(file: string, data: string): void {
   fs.writeFileSync(file, data);
 }
 

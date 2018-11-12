@@ -20,7 +20,7 @@ const readFromFile = (filename: string): string => {
 const printLines = (file: string) => {
   const fileContent = readFromFile(file);
   if (fileContent !== null) {
-    fileContent.split("\n\t").forEach(e => {
+    fileContent.split("\r\n").forEach(e => {
       console.log(e);
     });
   }

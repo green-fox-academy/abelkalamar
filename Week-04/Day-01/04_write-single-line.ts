@@ -8,10 +8,10 @@ export { };
 
 let fs = require('fs');
 
-function writeIntoFile(content: string, fileName: string) {
+function writeIntoFile(content: string, fileName: string): void {
   try {
     fs.writeFileSync(fileName, content);
-  } catch(e) {
+  } catch (e) {
     console.log(`Unable to write a file: ${fileName}`);
     return null;
   }
