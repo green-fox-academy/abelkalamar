@@ -8,42 +8,58 @@ export { };
 
 let fs = require('fs');
 
-function readFromFile(filename: string): string {
+function readFromFile(fileName: string): string {
   try {
-    return fs.readFileSync(filename, 'utf-8');
+    return fs.readFileSync(fileName, 'utf-8');
   } catch (e) {
     return null;
   }
 }
 
-function result(fileName: string) {
+function checkRows(fileName: string) {
   let content: string[] = readFromFile(fileName).split('\r\n');
-  let res: any[][] = [];
-  let rows: number[] = [];
+  let rows: string[][] = [];
+  let result: string = '';
   if (content !== null) {
     for (let i: number = 0; i < content.length; i++) {
-      res.push(content[i].split(''));
-    }
-    if (res[0][0] === res[1][1] === res[2][2] || res[0][2] === res[1][1] === res[2][0]) {
-      console.log(res[1][1]);
-      return res[1][1];
-    } /*else {
-      for (let i: number = 0; i < res.length; i++) {
-        if (res[i].every(e => e === 'X' || e === 'O')) {
-          return res[i][0];
-        }
+      rows.push(content[i].split(''));
+      if (rows[i].every((e, i, arr) => e === arr[0])) {
+        result = rows[i][0];
       }
-  }*/
+    }
   }
-  console.log(res[0][0]);
-  console.log(res[1][1]);
-  console.log(res[2][2]);
+  return result;
 }
 
-console.log(result('win-X.txt'));
+console.log(checkRows('win-x.txt'));
 
 
 
+/*
+function result(fileName: string) {
+  let rows: string[] = readFromFile(fileName).split('\r\n');
+  let columns: any [][] = [];
+  let diag: string[][] = [];
+  if (rows !== null) {
+    for (let i: number = 0; i < rows.length; i++) {
+      diag.push(rows[i].split(''));
+    }
+    for (let i: number = 0; i < diag.length; i++) {
+      columns.push([]);
+      columns[i].push([]);
+      for (let j: number = 0; j < diag[i].length; j++) {
+      columns[i][j] = (diag[j][i]);
+      }
+    }
+    
+  }
+  console.log(rows);
+  console.log(diag);
+  console.log(columns);
+}
+
+result('win-x.txt');
+*/
 /*
 console.log(ticTacResult('win-o.txt'))
 // Should print "O"
