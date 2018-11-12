@@ -37,7 +37,9 @@ const decode = (arr: number[], obj: any): string => {
 
 console.log(decode(notSoCrypticMessage, hashmap));
 
+
 /*
-notSoCrypticMessage.forEach((element) => { out += hashmap[element].toString() });
+notSoCrypticMessage.forEach((element) => { out += hashmap[element] });
+
 
 console.log( out);*/

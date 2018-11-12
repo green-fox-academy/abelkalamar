@@ -37,7 +37,3 @@ const calculate = (a: string[]): any => {
   }
 }
 console.log(`${calculate(args)}\nGoodbye `);
-
-
-
-
