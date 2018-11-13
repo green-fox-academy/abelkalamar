@@ -4,21 +4,23 @@ export { };
 class Counter {
 
   value: number;
+  defaultValue: number;
 
   constructor(value: number = 0) {
     this.value = value;
+    this.defaultValue = value;
   }
 
-  add(num: number = 1) {
+  add(num: number = 1): void {
     this.value += num;
   }
 
-  get() {
+  get(): string {
     return this.value.toString();
   }
 
-  reset() {
-    this.value = 0;
+  reset(): void {
+    this.value = this.defaultValue;
   }
 }
 
