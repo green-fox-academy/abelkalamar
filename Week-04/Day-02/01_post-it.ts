@@ -1,3 +1,6 @@
+'use strict'
+export { };
+
 class PostIt {
 
   backgroundColor: string;
