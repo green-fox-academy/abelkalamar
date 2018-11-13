@@ -31,18 +31,16 @@ function pickPokemon(): string {
   }
   return bestPok;
 }
-
 console.log(`I choose you, ${pickPokemon()}`);
 
 // 2nd solution
 function pickRightPokemon(): string {
   let bestPok: string = '';
   for (let i: number = 0; i < pokemonOfAsh.length; i++) {
-    if (pokemonOfAsh[i].isEffectiveAgainst(wildPokemon) === true) {
+    if (pokemonOfAsh[i].isEffectiveAgainst(wildPokemon)) {
       bestPok = pokemonOfAsh[i].name;
     }
   }
   return bestPok;
 }
-
 console.log(`I choose you, ${pickRightPokemon()}`);
