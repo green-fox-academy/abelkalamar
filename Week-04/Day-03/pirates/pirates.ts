@@ -20,7 +20,7 @@ export class Pirates {
       console.log('Pour me anudder!')
       this.drinkSomeRum();
     } else {
-      console.log("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
+      console.log(`Arghh, I'ma Pirate. How d'ya d'ink its goin?\n (He passed of, but he will sleep it off.)`);
     }
   }
 
@@ -32,10 +32,12 @@ export class Pirates {
     let result = Math.ceil(Math.random() * 3);
     if (opp.alive) {
       switch (result) {
-        case 1: this.alive = false;
-        console.log(`The winner is ${this.name}`)
-        case 2: opp.alive = false;
-        console.log(`The winner is ${opp.name}`)
+        case 1: opp.alive = false;
+        console.log(`The winner is ${this.name}.`)
+        break;
+        case 2: this.alive = false;
+        console.log(`The winner is ${opp.name}.`)
+        break;
         case 3: console.log('They passed out and will sleep it off.');
         break;
       }
