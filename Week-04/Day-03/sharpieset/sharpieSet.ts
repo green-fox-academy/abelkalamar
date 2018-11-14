@@ -10,12 +10,17 @@ export class SharpieSet {
     this.sharpies = [];
   }
 
-  add(elem: Sharpie) {
+  add(elem: Sharpie): void {
     this.sharpies.push(elem);
   }
 
-  countUsable(name: Sharpie) {return name.inkAmount !== 0}
+  countUsable(name: Sharpie): boolean {return name.inkAmount !== 0}
 
-  
-
+  removeTrash(): void {
+    this.sharpies.forEach((e, i, a) => {
+      if (e.inkAmount === 0) {
+        a.splice(i, 1);
+      }    
+    });
+  }
 }

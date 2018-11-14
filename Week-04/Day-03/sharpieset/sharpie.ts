@@ -18,8 +18,4 @@ export class Sharpie {
   }
 }
 
-let sharpie1 = new Sharpie('purple', 200);
-
-sharpie1.use(50);
-console.log(sharpie1.inkAmount);
 

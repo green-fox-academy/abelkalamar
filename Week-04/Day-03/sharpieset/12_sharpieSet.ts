@@ -13,9 +13,11 @@ sharpieCase.add(green);
 sharpieCase.add(red);
 sharpieCase.add(yellow);
 
-//console.log(sharpieCase);
 
 blue.use(50);
+
+console.log(sharpieCase);
 console.log(sharpieCase.countUsable(blue));
 
-
+sharpieCase.removeTrash();
+console.log(sharpieCase);
