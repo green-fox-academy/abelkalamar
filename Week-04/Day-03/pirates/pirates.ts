@@ -7,7 +7,7 @@ export class Pirates {
   constructor(name: string) {
     this.name = name;
     this.alive = true;
-    this.drunkLevel = 0;
+    this.drunkLevel = Math.floor(Math.random() * 4);
   }
 
   drinkSomeRum(): void {
