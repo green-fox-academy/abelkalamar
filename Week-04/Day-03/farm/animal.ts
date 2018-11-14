@@ -2,10 +2,12 @@
 
 export class Animals {
 
+  species: string;
   hunger: number;
   thirst: number;
 
-  constructor(hunger: number = 50, thirst: number = 50) {
+  constructor(species: string, hunger: number = 50, thirst: number = 50) {
+    this.species = species;
     this.hunger = hunger;
     this.thirst = thirst;
   }
