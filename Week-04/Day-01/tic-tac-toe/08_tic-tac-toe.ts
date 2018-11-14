@@ -16,25 +16,21 @@ function readFromFile(fileName: string): string {
   }
 }
 
-let result1: string = '';
-let result2: string = '';
-let result3: string = '';
+let result1: string = 'Draw';
+let result2: string = 'Draw';
+let result3: string = 'Draw';
 
 function checkRows(fileName: string): string {
   let content: string[] = readFromFile(fileName).split('\r\n');
-  let rows: string[][] = [];
+  let rows: string[] = [];
+  console.log(rows);
   if (content !== null) {
-    for (let i: number = 0; i < content.length; i++) {
-      rows.push(content[i].split(''));
-      if (rows[i].every((e, i, arr) => e === arr[0])) {
-        result1 = rows[i][0];
-      } else {
-        result1 = 'Draw';
-      }
-    }
+    if (rows.indexOf('X') === -1) result1 = 'O';
+    if (rows.indexOf('O') === -1) result1 = 'X';
   }
   return result1;
 }
+console.log(checkRows('win-o.txt'));
 
 function checkColumns(fileName: string): string {
   let content: string[] = readFromFile(fileName).split('\r\n');
@@ -48,15 +44,11 @@ function checkColumns(fileName: string): string {
       }
       if (columns[i].every((e, i, arr) => e === arr[0])) {
         result2 = columns[i][0];
-      } else {
-        result2 = 'Draw';
-      }
+      } 
     }
   }
-  console.log(columns);
   return result2;
 }
-checkColumns('win-o.txt')
 
 function checkDiagonal(fileName: string): string {
   let content: any[] = readFromFile(fileName).split('\r\n');
@@ -69,29 +61,27 @@ function checkDiagonal(fileName: string): string {
       result3 = diag[1][1];
     } else if (diag[0][2] === diag[1][1] && diag[1][1] === diag[2][0]) {
       result3 = diag[1][1];
-    } else {
-      result3 = 'Draw';
-    }
+    } 
   }
   return result3;
 }
 
 function ticTacResult(fileName: string): string {
-  let result: string = '';
-  if (checkRows(fileName).length === 1) {
+  let result: string = 'Draw';
+  if (checkRows(fileName)!== 'Draw') {
     result = checkRows(fileName);
-  } else if (checkColumns(fileName).length === 1) {
+  } else if (checkColumns(fileName)!== 'Draw') {
     console.log('yes');
     result = checkColumns(fileName);
-  } else if (checkDiagonal(fileName).length === 1) {
+  } else if (checkDiagonal(fileName)!== 'Draw') {
     result = checkDiagonal (fileName);
-  } else {
-    console.log(checkColumns(fileName));
-    result = 'Draw';
-  }
+  } 
   return result;
 }
-
+/*
+console.log(checkColumns('win-o.txt'));
+console.log(checkRows('win-o.txt'));
+console.log(checkDiagonal('win-o.txt'));
 console.log(ticTacResult('win-o.txt'));
 // Should print "O"
 /*
