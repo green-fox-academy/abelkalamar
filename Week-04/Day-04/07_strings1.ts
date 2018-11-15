@@ -4,8 +4,7 @@ export{ };
 
 function changeXToY(str: string): string {
   if (str.includes('x')) {
-    str = str.replace('x', 'y');
-    return changeXToY(str);
+    return changeXToY(str.replace('x', 'y'));
   }
   return str;
 }

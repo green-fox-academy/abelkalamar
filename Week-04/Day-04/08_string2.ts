@@ -2,8 +2,7 @@
 
 function changeXToY(str: string): string {
   if (str.includes('x')) {
-    str = str.replace('x', '');
-    return changeXToY(str);
+    return changeXToY(str.replace('x', ''));
   }
   return str;
 }
