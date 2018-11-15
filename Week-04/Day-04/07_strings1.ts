@@ -6,9 +6,10 @@ export{ };
 function changeXToY(str: string): string {
   if (str.includes('x')) {
     str = str.replace('x', 'y');
+    console.log(str);
     return changeXToY(str);
   }
   return str;
 }
-console.log(changeXToY('xxxxxxxxxxysffdxxdsdyyx'));
+console.log(changeXToY('xxx'));
 
