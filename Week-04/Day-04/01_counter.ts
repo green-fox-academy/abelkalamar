@@ -1,6 +1,6 @@
 // Write a recursive function that takes one parameter: n and counts down from n.
 
-function countDown(n: number) {
+function countDown(n: number): void {
   if (n === 0) return console.log(n);
   else
   console.log(n)
