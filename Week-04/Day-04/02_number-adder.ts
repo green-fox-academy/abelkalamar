@@ -1,11 +1,7 @@
 // Write a recursive function that takes one parameter: n and adds numbers from 1 to n.
 
-let sum = 0;
-
-function sumOfNums(num: number) {
+function sumOfNums(num: number): number {
   if (num === 0) return 0;
-  sum += num;
-  sumOfNums(num - 1);
-  return sum;
+  return num + sumOfNums(num - 1);
 }
 console.log(sumOfNums(10));
