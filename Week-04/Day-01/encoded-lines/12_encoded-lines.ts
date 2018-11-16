@@ -27,7 +27,7 @@ function decodeText(fileName: string): string {
       encodedText[i].push([]);
       for (let j = 0; j < contentChar[i].length; j++) {
         if (contentChar[i][j] !== ' ') {
-        encodedText[i][j] = String.fromCharCode(contentChar[i][j].charCodeAt(0) - 1);
+          encodedText[i][j] = String.fromCharCode(contentChar[i][j].charCodeAt(0) - 1);
         } else encodedText[i][j] = ' ';
       }
     }
@@ -35,20 +35,4 @@ function decodeText(fileName: string): string {
   }
   return content.join('\r\n');
 }
-
 console.log(decodeText('encoded-lines.txt'));
-
-/*
-let arr = ['wel c ome', 'ho me'];
-let arr2: string[][] = [];
-arr.forEach(e => arr2.push(e.split('')));
-
-for (let j = 0; j < arr2.length; j++) {
-  arr2.forEach((e, i, a) => {
-    if (a[j][i] !== ' ') {
-      console.log(a[j][i].charCodeAt(0));
-    }
-  })
-}
-//console.log(arr2[0][1].charCodeAt(1));
-*/
