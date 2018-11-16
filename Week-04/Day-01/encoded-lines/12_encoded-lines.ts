@@ -17,31 +17,38 @@ function readFromFile(fileName: string) {
 }
 
 function decodeText(fileName: string): string {
-  //let alphabet = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ[ , - . / ' ( * +".split('')
-  let content: string[] = readFromFile(fileName).toLowerCase().split('\r\n');
-  //let contentRows: string[][] = [];
-  //content.forEach((e, i, a) => contentRows.push(a[i].split('')));
-  //console.log(contentRows);
+  let content: string[] = readFromFile(fileName).split('\r\n');
+  let contentChar: string[][] = [];
+  let encodedText = [];
   if (content !== null) {
-    content.forEach((e, i) => {
-      for (let j = 0; j < content[i].length; j++) {
-        content[i].charCodeAt(j);
-        
+    content.forEach(e => contentChar.push(e.split('')));
+    for (let i = 0; i < contentChar.length; i++) {
+      encodedText.push([]);
+      encodedText[i].push([]);
+      for (let j = 0; j < contentChar[i].length; j++) {
+        if (contentChar[i][j] !== ' ') {
+        encodedText[i][j] = String.fromCharCode(contentChar[i][j].charCodeAt(0) - 1);
+        } else encodedText[i][j] = ' ';
       }
-        //content.splice(i, 1, alphabet[alphabet.indexOf(e) - 1]);
-      });
-    
-    
+    }
+    encodedText.forEach((e, i, a) => content.splice(i, 1, e.join('')));
   }
-  return content.join(' ');
+  return content.join('\r\n');
 }
-decodeText('encoded-lines.txt');
 
-
+console.log(decodeText('encoded-lines.txt'));
 
 /*
-let str: string[] = 'abcdefghijk'.split('');
-console.log(str);
+let arr = ['wel c ome', 'ho me'];
+let arr2: string[][] = [];
+arr.forEach(e => arr2.push(e.split('')));
 
-console.log('+'.charCodeAt(0));
+for (let j = 0; j < arr2.length; j++) {
+  arr2.forEach((e, i, a) => {
+    if (a[j][i] !== ' ') {
+      console.log(a[j][i].charCodeAt(0));
+    }
+  })
+}
+//console.log(arr2[0][1].charCodeAt(1));
 */
