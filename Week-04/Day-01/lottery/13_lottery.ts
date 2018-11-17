@@ -28,7 +28,7 @@ function frequentNums(arr: string[][]) {
   class LotteryNums {
     name: string;
     frequency: number;
-    
+
     constructor(name: string) {
       this.name = name;
       this.frequency = 0;
@@ -40,17 +40,34 @@ function frequentNums(arr: string[][]) {
   }
   for (let j = 0; j < arr.length; j++) {
     arr[j].forEach(e => {
-      for (let k = 0; k < nums.length; k++){
-        if(e === nums[k].name) {
+      for (let k = 0; k < nums.length; k++) {
+        if (e === nums[k].name) {
           nums[k].frequency++;
           break;
         }
       }
     });
-    
-
   }
-  return nums;
+  console.log(nums);
+  let numFrequencies: number[] = [];
+  let fiveBiggestFraqs: number[] = [];
+  let result: string[] = [];
+  for (let i = 0; i < nums.length; i++) {
+    numFrequencies.push(nums[i].frequency);
+  }
+  for (let j = 0; j < 5; j++) {
+    fiveBiggestFraqs.push(Math.max(...numFrequencies));
+    numFrequencies.splice(numFrequencies.indexOf(Math.max(...numFrequencies)), 1);
+  }
+  for (let j = 0; j < fiveBiggestFraqs.length; j++) {
+    nums.forEach(e => {
+      if (fiveBiggestFraqs[j] === e.frequency) {
+        result.push(e.name);
+        nums.splice(nums.indexOf(e), 1);
+      }
+    });
+  }
+  return ` The 5 most frequent numbers are: ${result}`;
 }
 console.log(frequentNums(getNumbersFromFile('lottery.txt')));
 
