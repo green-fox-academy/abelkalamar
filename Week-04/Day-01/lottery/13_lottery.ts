@@ -40,9 +40,14 @@ function frequentNums(arr: string[][]) {
   }
   for (let j = 0; j < arr.length; j++) {
     arr[j].forEach(e => {
-      if(e === )
-      
+      for (let k = 0; k < nums.length; k++){
+        if(e === nums[k].name) {
+          nums[k].frequency++;
+          break;
+        }
+      }
     });
+    
 
   }
   return nums;
