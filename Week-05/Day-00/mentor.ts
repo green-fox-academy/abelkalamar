@@ -5,7 +5,7 @@ export class Mentor {
   gender: string;
   level: string;
 
-  constructor(name: string, age: number, gender: string, level: string) {
+  constructor(name: string = 'Jane Doe', age: number = 30, gender: string = 'famele', level: string = 'intermediate') {
     this.name = name;
     this.age = age;
     this.gender = gender;

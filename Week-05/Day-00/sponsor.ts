@@ -6,7 +6,7 @@ export class Sponsor {
   company: string;
   hiredStudents: number;
 
-  constructor(name: string, age: number, gender: string, company: string) {
+  constructor(name: string = 'Jane Doe', age: number = 30, gender: string = 'female', company: string = 'Google') {
     this.name = name;
     this.age = age;
     this.gender = gender;

@@ -6,7 +6,7 @@ export class Student {
   previousOrganization: string;
   skippedDays: number;
 
-  constructor(name: string, age: number, gender: string, previousOrganization: string) {
+  constructor(name: string = 'Jane Doe', age: number = 30, gender: string = 'female', previousOrganization: string = 'The School of Life') {
     this.name = name;
     this.age = age;
     this.gender = gender;
@@ -15,8 +15,7 @@ export class Student {
   }
 
   introduce() {
-    console.log(`Hi, I'm ${this.name} a ${this.age} old ${this.gender} from ${this.previousOrganization}, 
-    who skipped ${this.skippedDays} days from the course already.`)
+    console.log(`Hi, I'm ${this.name} a ${this.age} old ${this.gender} from ${this.previousOrganization}, who skipped ${this.skippedDays} days from the course already.`)
   }
 
   getGoal() {
