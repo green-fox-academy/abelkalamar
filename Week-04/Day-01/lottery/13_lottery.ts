@@ -48,7 +48,6 @@ function frequentNums(arr: string[][]) {
       }
     });
   }
-  console.log(nums);
   let numFrequencies: number[] = [];
   let fiveBiggestFraqs: number[] = [];
   let result: string[] = [];
@@ -67,7 +66,7 @@ function frequentNums(arr: string[][]) {
       }
     });
   }
-  return ` The 5 most frequent numbers are: ${result}`;
+  return ` The 5 most frequent numbers are: ${result.slice(0, 5)}`;
 }
 console.log(frequentNums(getNumbersFromFile('lottery.txt')));
 
