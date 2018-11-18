@@ -48,23 +48,39 @@ function frequentNums(arr: string[][]) {
       }
     });
   }
-  let numFrequencies: number[] = [];
+  nums.sort(function (a, b) {
+    return b.frequency - a.frequency;
+  })
   let result: string[] = [];
-  for (let i = 0; i < nums.length; i++) {
-    numFrequencies.push(nums[i].frequency);
-  }
-  numFrequencies.sort(function(a, b) {
-    return +b - +a;
-  });
-  numFrequencies = numFrequencies.slice(0, 5);
-  for (let j = 0; j < numFrequencies.length; j++) {
-    nums.forEach(e => {
-      if (numFrequencies[j] === e.frequency) {
-        result.push(e.name);
-        nums.splice(nums.indexOf(e), 1);
-      }
-    });
-  }
-  return ` The 5 most frequent numbers are: ${result.slice(0, 5)}`;
+  nums.forEach(e => {
+    result.push(e.name);
+  })
+  return ` The 5 most frequent numbers are: ${result.slice(0, 5)}`
 }
 console.log(frequentNums(getNumbersFromFile('lottery.txt')));
+
+// Ugly solution part, but has some good part for the future so I keep it
+
+// let numFrequencies: number[] = [];
+//   let fiveBiggestFraqs: number[] = [];
+//   let result: string[] = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     numFrequencies.push(nums[i].frequency);
+//   }
+//   numFrequencies.sort(function(a, b) {
+//     return +b - +a;
+//   });
+//   numFrequencies.slice(0, 5);
+//   for (let j = 0; j < 5; j++) {
+//     fiveBiggestFraqs.push(Math.max(...numFrequencies));
+//     numFrequencies.splice(numFrequencies.indexOf(Math.max(...numFrequencies)), 1);
+//   }
+//   for (let j = 0; j < fiveBiggestFraqs.length; j++) {
+//     nums.forEach(e => {
+//       if (fiveBiggestFraqs[j] === e.frequency) {
+//         result.push(e.name);
+//         nums.splice(nums.indexOf(e), 1);
+//       }
+//     });
+//   }
+//   return ` The 5 most frequent numbers are: ${result.slice(0, 5)}`;
