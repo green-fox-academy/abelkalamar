@@ -49,18 +49,17 @@ function frequentNums(arr: string[][]) {
     });
   }
   let numFrequencies: number[] = [];
-  let fiveBiggestFraqs: number[] = [];
   let result: string[] = [];
   for (let i = 0; i < nums.length; i++) {
     numFrequencies.push(nums[i].frequency);
   }
-  for (let j = 0; j < 5; j++) {
-    fiveBiggestFraqs.push(Math.max(...numFrequencies));
-    numFrequencies.splice(numFrequencies.indexOf(Math.max(...numFrequencies)), 1);
-  }
-  for (let j = 0; j < fiveBiggestFraqs.length; j++) {
+  numFrequencies.sort(function(a, b) {
+    return +b - +a;
+  });
+  numFrequencies = numFrequencies.slice(0, 5);
+  for (let j = 0; j < numFrequencies.length; j++) {
     nums.forEach(e => {
-      if (fiveBiggestFraqs[j] === e.frequency) {
+      if (numFrequencies[j] === e.frequency) {
         result.push(e.name);
         nums.splice(nums.indexOf(e), 1);
       }
@@ -69,4 +68,3 @@ function frequentNums(arr: string[][]) {
   return ` The 5 most frequent numbers are: ${result.slice(0, 5)}`;
 }
 console.log(frequentNums(getNumbersFromFile('lottery.txt')));
-
