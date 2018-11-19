@@ -26,6 +26,6 @@ export default class Plant {
   }
 
   doesItNeedWater() {
-    if (this.currWaterAmount < 5) return true;
+    return this.currWaterAmount < 5;
   }
 }
