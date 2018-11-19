@@ -1,9 +1,9 @@
 import Aircraft from "./aircraft";
 
-class F35 extends Aircraft {
+export default class F35 extends Aircraft {
 
   constructor() {
-    super(name);
+    super();
     this.maxAmmo = 12;
     this.baseDamage = 50;
   }

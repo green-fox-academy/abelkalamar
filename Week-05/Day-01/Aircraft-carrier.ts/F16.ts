@@ -1,9 +1,9 @@
 import Aircraft from "./aircraft";
 
-class F16 extends Aircraft {
+export default class F16 extends Aircraft {
 
   constructor() {
-    super(name);
+    super();
     this.maxAmmo = 8;
     this.baseDamage = 30;
   }
