@@ -9,7 +9,8 @@ export default class Carrier {
   private ammoStore: number;
   private totalDamage: number;
 
-  constructor(ammo: number, health: number) {
+  constructor(name: string, ammo: number, health: number) {
+    this.name = name;
     this.ammoStore = ammo;
     this.healthPoints = health;
     this.planes = [];
@@ -47,19 +48,26 @@ export default class Carrier {
         });
       }
     }
-    console.log(this.ammoStore);
   }
 
-  fight(carrier: Carrier): number {
-    this.planes.forEach(e => {
-      this.totalDamage += e.getCurrDamage();
-    });
-    return carrier.healthPoints -= this.totalDamage;
+  fight(opponent: Carrier): void {
+    while (this.healthPoints > 0 && opponent.healthPoints > 0) {
+      this.fill();
+      opponent.fill();
+      this.planes.forEach(e => {
+        this.totalDamage += e.getCurrDamage();
+      });
+      opponent.planes.forEach(e => {
+        opponent.totalDamage += e.getCurrDamage();
+      });
+      console.log(`${this.name}'s health: ${opponent.healthPoints -= this.totalDamage}`);
+      console.log(`${this.name}'s health: ${this.healthPoints -= opponent.totalDamage}`);
+    }
   }
 
   getStatus(): void {
     if (this.healthPoints < 0) {
-      console.log('It\'s dead Jim :(');
+      console.log(`${this.name}: It's dead Jim :(`);
     } else {
       console.log(`HP: ${this.healthPoints}, Aircraft count: ${this.planes.length}, Ammo Storage: ${this.ammoStore}, Total Damage: ${this.totalDamage}`);
       console.log(`Aircrafts:`);
