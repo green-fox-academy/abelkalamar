@@ -1,6 +1,6 @@
 import Person from "./person";
 
-class Mentor extends Person {
+export default class Mentor extends Person {
   
   protected level: string;
 

@@ -1,6 +1,6 @@
 import Person from "./person";
 
-class Sponsor extends Person {
+export default class Sponsor extends Person {
 
   protected company: string;
   hiredStudents: number;

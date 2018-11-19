@@ -1,8 +1,7 @@
 import Student from "./student";
-import { Mentor } from "../../Day-00/mentor";
+import Mentor from "./mentor";
 
-
-class Cohort {
+export default class Cohort {
 
   name: string;
   students: Student[];
@@ -18,8 +17,8 @@ class Cohort {
     this.students.push(student);
   }
 
-  addMentor(mentor: Student) {
-    this.students.push(mentor);
+  addMentor(mentor: Mentor) {
+    this.mentors.push(mentor);
   }
 
   info() {

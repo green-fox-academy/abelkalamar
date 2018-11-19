@@ -1,6 +1,6 @@
-import { Person } from "./person";
+import Person from "./person";
 
-export class Student extends Person {
+export default class Student extends Person {
 
   protected previousOrganization: string;
   protected skippedDays: number;
@@ -19,7 +19,7 @@ export class Student extends Person {
     console.log(`Hi, I'm ${this.name} a ${this.age} old ${this.gender} from ${this.previousOrganization} who skipped ${this.skippedDays} days from the course already.`)
   }
 
-  skipDays() {
-    this.skippedDays++;
+  skipDays(days: number) {
+    this.skippedDays += days;
   }
 }
