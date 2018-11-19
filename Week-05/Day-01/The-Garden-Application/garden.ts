@@ -15,9 +15,9 @@ export default class Garden {
     console.log(`In ${this.name} garden are ${this.plants.length} plants:`)
     this.plants.forEach(e => {
       if (e.doesItNeedWater()) {
-        console.log(`The ${e.getColor()} ${this.plantType(e)} needs water.`);
+        console.log(`The ${e.getColor()} ${e.constructor.name} needs water.`);
       } else {
-        console.log(`The ${e.getColor()} ${this.plantType(e)} doesn't need water.`);
+        console.log(`The ${e.getColor()} ${e.constructor.name} doesn't need water.`);
       }
     });
     console.log(``);
@@ -25,14 +25,6 @@ export default class Garden {
 
   addPlants(plant: Flower | Tree) {
     this.plants.push(plant);
-  }
-
-  plantType(plant: Flower | Tree) {
-    if (plant instanceof Flower) {
-      return 'Flower';
-    } else {
-      return 'Tree';
-    }
   }
 
   watering(waterAmount: number) {
@@ -46,9 +38,9 @@ export default class Garden {
     this.plants.forEach(e => {
       e.setWaterAmount(e.getWaterAbsorbtion() * (waterAmount / numOfThirstyPlants));
       if (e.doesItNeedWater()) {
-        console.log(`The ${e.getColor()} ${this.plantType(e)} needs water.`);
+        console.log(`The ${e.getColor()} ${e.constructor.name} needs water.`);
       } else {
-        console.log(`The ${e.getColor()} ${this.plantType(e)} doesn't need water.`)
+        console.log(`The ${e.getColor()} ${e.constructor.name} doesn't need water.`)
       }
     });
     console.log(``);
