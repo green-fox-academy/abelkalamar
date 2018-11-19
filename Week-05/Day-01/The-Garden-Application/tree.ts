@@ -1,6 +1,6 @@
 import Plant from './plant';
 
-export default class Tree extends Plant{
+export default class Tree extends Plant {
 
   constructor(color: string) {
     super(color);
@@ -8,7 +8,7 @@ export default class Tree extends Plant{
   }
 
   doesItNeedWater() {
-    if(this.currWaterAmount < 10) return true;
+    return this.currWaterAmount < 10;
   }
 
 }

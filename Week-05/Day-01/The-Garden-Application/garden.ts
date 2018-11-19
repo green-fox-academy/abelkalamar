@@ -1,7 +1,7 @@
 import Flower from "./flower";
 import Tree from "./tree";
 
-class Garden {
+export default class Garden {
 
   name: string;
   plants: Flower[] | Tree[];
@@ -9,7 +9,30 @@ class Garden {
   constructor(name: string) {
     this.name = name;
     this.plants = [];
-    console.log(`In ${this.name} garden are ${this.plants.length} plants.`)
+  }
+
+  info() {
+    console.log(`In ${this.name} garden are ${this.plants.length} plants:`)
+    this.plants.forEach(e => {
+      if (e.doesItNeedWater()) {
+        console.log(`The ${e.getColor()} ${this.plantType(e)} needs water.`);
+      } else {
+        console.log(`The ${e.getColor()} ${this.plantType(e)} doesn't need water.`);
+      }
+    });
+    console.log(``);
+  }
+
+  addPlants(plant: Flower | Tree) {
+    this.plants.push(plant);
+  }
+
+  plantType(plant: Flower | Tree) {
+    if (plant instanceof Flower) {
+      return 'Flower';
+    } else {
+      return 'Tree';
+    }
   }
 
   watering(waterAmount: number) {
@@ -19,15 +42,17 @@ class Garden {
         numOfThirstyPlants++;
       }
     });
+    console.log(`Watering with ${waterAmount}`)
     this.plants.forEach(e => {
-      e.setWaterAmount(waterAmount / numOfThirstyPlants);
-      if (e.doesItNeedWater) {
-      console.log(`The ${e.getColor} ${typeof e} needs water.`);
+      e.setWaterAmount(e.getWaterAbsorbtion() * (waterAmount / numOfThirstyPlants));
+      if (e.doesItNeedWater()) {
+        console.log(`The ${e.getColor()} ${this.plantType(e)} needs water.`);
       } else {
-        console.log(`The ${e.getColor} ${typeof e} doesn't need water.`)
+        console.log(`The ${e.getColor()} ${this.plantType(e)} doesn't need water.`)
       }
     });
+    console.log(``);
   }
-  
+
 
 }

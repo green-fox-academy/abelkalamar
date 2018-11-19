@@ -1,6 +1,6 @@
 import Plant from './plant';
 
-export default class Flower extends Plant{
+export default class Flower extends Plant {
 
   constructor(color: string) {
     super(color);
