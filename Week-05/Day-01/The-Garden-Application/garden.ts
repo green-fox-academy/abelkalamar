@@ -53,6 +53,4 @@ export default class Garden {
     });
     console.log(``);
   }
-
-
 }
