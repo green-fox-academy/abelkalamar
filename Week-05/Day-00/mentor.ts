@@ -1,6 +1,6 @@
 export class Mentor {
 
-  name: string;
+  name: string
   age: number;
   gender: string;
   level: string;
@@ -19,5 +19,4 @@ export class Mentor {
   getGoal() {
     console.log(`Educate brilliant junior software developers.`);
   }
-
 }
