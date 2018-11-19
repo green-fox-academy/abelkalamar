@@ -10,6 +10,18 @@ export default class Aircraft {
     this.currAmmo = 0;
   }
 
+  setAmmo(ammo: number) {
+    this.currAmmo += ammo;
+  }
+
+  getCurrAmmo() {
+    return this.currAmmo;
+  }
+
+  getMaxAmmo() {
+    return this.maxAmmo;
+  }
+
   fight() {
     let damage = this.baseDamage * this.currAmmo;
     this.currAmmo = 0;
@@ -40,5 +52,4 @@ export default class Aircraft {
       return true;
     }
   }
-
 }
