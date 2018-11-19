@@ -1,34 +1,40 @@
 export default class Aircraft {
 
-  protected name: string;
   protected maxAmmo: number;
   protected baseDamage: number;
   protected currAmmo: number;
 
-  constructor(name: string) {
-    this.name = name;
+  constructor() {
     this.currAmmo = 0;
   }
 
-  setAmmo(ammo: number) {
+  setAmmo(ammo: number): void {
     this.currAmmo += ammo;
   }
 
-  getCurrAmmo() {
+  getCurrAmmo(): number {
     return this.currAmmo;
   }
 
-  getMaxAmmo() {
+  getBaseDamage(): number {
+    return this.baseDamage;
+  }
+
+  getMaxAmmo(): number {
     return this.maxAmmo;
   }
 
-  fight() {
+  getCurrDamage(): number {
+    return this.currAmmo * this.baseDamage;
+  }
+
+  fight(): number {
     let damage = this.baseDamage * this.currAmmo;
     this.currAmmo = 0;
     return damage;
   }
 
-  refill(ammo: number) {
+  refill(ammo: number): number {
     if (ammo > this.currAmmo) {
       this.currAmmo = this.maxAmmo;
     } else {
@@ -37,15 +43,15 @@ export default class Aircraft {
     return ammo - this.currAmmo;
   }
 
-  getType() {
+  getType(): string {
     return this.constructor.name;
   }
 
-  getStatus() {
-    console.log(`Type ${this.constructor.name}, Ammo: ${this.currAmmo}, Base Damage: ${this.baseDamage}, All Damage: ${this.currAmmo * this.baseDamage}`);
+  getStatus(): void {
+    console.log(`Type ${this.getType()}, Ammo: ${this.currAmmo}, Base Damage: ${this.baseDamage}, All Damage: ${this.currAmmo * this.baseDamage}`);
   }
 
-  isPriority() {
+  isPriority(): boolean {
     if (this.getType() === 'F16') {
       return false;
     } else {
