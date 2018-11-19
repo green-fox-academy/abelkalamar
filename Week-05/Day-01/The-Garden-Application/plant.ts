@@ -13,10 +13,6 @@ export default class Plant {
     return this.color;
   }
 
-  getWaterAmount() {
-    return this.currWaterAmount;
-  }
-
   getWaterAbsorbtion() {
     return this.waterAbsorbtion;
   }
