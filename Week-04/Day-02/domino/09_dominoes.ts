@@ -1,4 +1,4 @@
-import {Domino} from "./domino";
+import { Domino } from "./domino";
 
 function initializeDominoes(): Domino[] {
     let dominoes = [];
