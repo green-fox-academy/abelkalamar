@@ -10,6 +10,10 @@ abstract class StringedInstrument extends Instrument {
 
   sound() {
   };
+
+  play(): void {
+    console.log(`${this.name}, a ${this.numberOfStrings}-stringed istrument that goes ${this.sound()}.`);
+  }
 }
 
 export class ElectricGuitar extends StringedInstrument {
@@ -17,14 +21,11 @@ export class ElectricGuitar extends StringedInstrument {
   constructor(numberOfStrings: number = 6) {
     super();
     this.numberOfStrings = numberOfStrings;
+    this.name = 'Electric Guitar';
   }
 
   sound(): string {
     return 'Twaag';
-  }
-
-  play(): void {
-    console.log(`Electric Guitar, a ${this.numberOfStrings}-stringed istrument that goes ${this.sound()}.`);
   }
 }
 
@@ -33,14 +34,11 @@ export class BassGuitar extends StringedInstrument {
   constructor(numberOfStrings: number = 4) {
     super();
     this.numberOfStrings = numberOfStrings;
+    this.name = 'Bass Guitar';
   }
 
   sound(): string {
     return 'Duum-duum-duum';
-  }
-
-  play(): void {
-    console.log(`Bass Guitar, a ${this.numberOfStrings}-stringed istrument that goes ${this.sound()}.`);
   }
 }
 
@@ -49,13 +47,10 @@ export class Violin extends StringedInstrument {
   constructor(numberOfStrings: number = 4) {
     super();
     this.numberOfStrings = numberOfStrings;
+    this.name = 'Violin';
   }
 
   sound(): string {
     return 'Screech';
-  }
-
-  play(): void {
-    console.log(`${this.constructor.name}, a ${this.numberOfStrings}-stringed istrument that goes ${this.sound()}.`);
   }
 }
