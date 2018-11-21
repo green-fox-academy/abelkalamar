@@ -1,48 +1,61 @@
+import Instrument from "./instrument";
+
 abstract class StringedInstrument extends Instrument {
 
   numberOfStrings: number;
 
   constructor() {
-    super(name);
+    super();
   }
 
   sound() {
-
   };
 }
 
-class ElectricGuitar extends StringedInstrument {
+export class ElectricGuitar extends StringedInstrument {
 
-  constructor() {
+  constructor(numberOfStrings: number = 6) {
     super();
-    this.numberOfStrings = 6;
+    this.numberOfStrings = numberOfStrings;
   }
 
-  sound() {
-    console.log('Twaag');
+  sound(): string {
+    return 'Twaag';
+  }
+
+  play(): void {
+    console.log(`Electric Guitar, a ${this.numberOfStrings}-stringed istrument that goes ${this.sound()}.`);
   }
 }
 
-class BassGuitar extends StringedInstrument {
+export class BassGuitar extends StringedInstrument {
 
-  constructor() {
+  constructor(numberOfStrings: number = 4) {
     super();
-    this.numberOfStrings = 4;
+    this.numberOfStrings = numberOfStrings;
   }
 
-  sound() {
-    console.log('Duum-duum-duum');
+  sound(): string {
+    return 'Duum-duum-duum';
+  }
+
+  play(): void {
+    console.log(`Bass Guitar, a ${this.numberOfStrings}-stringed istrument that goes ${this.sound()}.`);
   }
 }
 
-class Violin extends StringedInstrument {
+export class Violin extends StringedInstrument {
 
-  constructor() {
+  constructor(numberOfStrings: number = 4) {
     super();
-    this.numberOfStrings = 4;
+    this.numberOfStrings = numberOfStrings;
   }
 
-  sound() {
-    console.log('Screech');
+  sound(): string {
+    return 'Screech';
+  }
+
+  play(): void {
+    console.log(`${this.constructor.name}, a ${this.numberOfStrings}-stringed istrument that goes ${this.sound()}.`);
   }
 }
