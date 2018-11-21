@@ -1,10 +1,11 @@
 abstract class StringedInstrument extends Instrument {
 
-  constructor() {
+  numberOfStrings: number;
 
+  constructor() {
+    super(name);
   }
 
-  numberOfStrings: number;
   sound() {
 
   };
@@ -12,8 +13,8 @@ abstract class StringedInstrument extends Instrument {
 
 class ElectricGuitar extends StringedInstrument {
 
-  constructor(numOfStrings: number) {
-    super(this.numberOfStrings);
+  constructor() {
+    super();
     this.numberOfStrings = 6;
   }
 
@@ -24,12 +25,24 @@ class ElectricGuitar extends StringedInstrument {
 
 class BassGuitar extends StringedInstrument {
 
+  constructor() {
+    super();
+    this.numberOfStrings = 4;
+  }
 
   sound() {
-    console.log('Twaag');
+    console.log('Duum-duum-duum');
   }
 }
 
 class Violin extends StringedInstrument {
 
+  constructor() {
+    super();
+    this.numberOfStrings = 4;
+  }
+
+  sound() {
+    console.log('Screech');
+  }
 }
