@@ -8,11 +8,15 @@ test('num = 0, and num = 20', (t: any) => {
 })
 
 test('num = -1', (t: any) => {
-  t.throws(fibonacci(-1));
+  t.throws(function(){
+    fibonacci(-1);
+  }, 'not cool');
   t.end();
 })
 
 test('num = törtszám', (t: any) => {
-  t.throws(fibonacci(1.55));
+  t.throws(function(){
+      fibonacci(1.55);
+  });
   t.end();
 })
