@@ -1,8 +1,8 @@
-export default class myClass {
+export default class MyClass {
 
   private content: number[];
 
-  constructor(nums) {
+  constructor(nums: number[]) {
     this.content = nums;
   }
 
