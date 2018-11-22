@@ -43,7 +43,7 @@ test('is vowel: u', function (t: any): any {
   t.end();
 });
 
-test("is vowel: k", function(t: any): any {
+test("is vowel: k", function (t: any): any {
   t.notOk(isVowel("k"));
   t.end();
 });
@@ -56,4 +56,4 @@ test('translate: bemutatkozik', function (t: any): any {
 test('translate: lagopus', function (t: any): any {
   t.equal(translate('alma'), 'avalmava');
   t.end();
-});
+}); 
