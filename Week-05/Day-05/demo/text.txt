@@ -1,0 +1,9 @@
+Chris Sharma  chalkbag  10  2
+Chris Sharma  shoe  170  3
+Chris Sharma  rope  250  2
+Chris Sharma  harness  120  1
+Daniel Woods  shoe  185  2
+Daniel Woods  chalkbag  10  2
+Daniel Woods  crashpad  175  8
+
+
