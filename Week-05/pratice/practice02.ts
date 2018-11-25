@@ -15,7 +15,7 @@ let newObject = numbers.reduce((keys, num) =>{
   return keys;
 }, {})
 
-// console.log(newObject)
+console.log(newObject)
 
 // filter and sort 
 
@@ -24,4 +24,3 @@ let newObject = numbers.reduce((keys, num) =>{
 
 //map
 
-numbers.map()
