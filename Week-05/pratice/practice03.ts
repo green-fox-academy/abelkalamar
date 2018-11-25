@@ -9,7 +9,7 @@ function readFile(fileName) {
   }
 }
 
-let getNumbers = (fileName) => {
+export let getNumbers = (fileName): any => {
   let content = readFile(fileName).trim().split('\r\n');
   if (content !== null) {
     content = content.map((e, i) => {
@@ -19,7 +19,7 @@ let getNumbers = (fileName) => {
   return content;
 }
 
-function frequentNumbers(filteredContent) {
+export let frequentNumbers = (filteredContent): Object => {
   let frequenties: Object = {};
   filteredContent.forEach(e => {
     e.reduce((nums, freq) => {
@@ -27,8 +27,22 @@ function frequentNumbers(filteredContent) {
       return nums;
     }, frequenties);
   });
-  let mostFrequents = Object.values(frequenties).sort().slice(-5);
-  return mostFrequents;
+  return frequenties;
 }
 
-console.log(frequentNumbers(getNumbers('text.txt')));
+export let chooseMostFreqs = (lotteryNums: Object): string[] => {
+  let mostFrequents = Object.values(lotteryNums).sort().slice(-5);
+  let results: string[] = [];
+  mostFrequents.forEach(e => {
+    for (let x in lotteryNums) {
+      if (e === lotteryNums[x]) {
+        if (results.indexOf(x) === -1) {
+          results.push(x);
+        }
+      }
+    }
+  });
+  return results;
+}
+
+console.log(chooseMostFreqs(frequentNumbers(getNumbers('text.txt'))));
