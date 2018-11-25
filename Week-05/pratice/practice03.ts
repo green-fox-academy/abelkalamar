@@ -27,7 +27,8 @@ function frequentNumbers(filteredContent) {
       return nums;
     }, frequenties);
   });
-  return frequenties;
+  let mostFrequents = Object.values(frequenties).sort().slice(-5);
+  return mostFrequents;
 }
 
 console.log(frequentNumbers(getNumbers('text.txt')));
