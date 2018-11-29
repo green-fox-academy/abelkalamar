@@ -11,4 +11,16 @@ export class Car {
       this. licensePlate = licensePlate;
       this.manufactureYear = manufactureYear;
     }
+
+    getId() {
+      return this.id;
+    }
+
+    getLicensePlate() {
+      return this. licensePlate;
+    }
+
+    getManufactureYear() {
+      return this.manufactureYear;
+    }
 }
