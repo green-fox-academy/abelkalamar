@@ -8,8 +8,11 @@
 
 ### - [website-repos](https://github.com/abelkalamar/abelkalamar.github.io.git)
 
+### - [wanderer-app](https://github.com/abelkalamar/wanderer-typescript)
 
-# Our lovely syllabus
+### - [exam-repo](https://github.com/abelkalamar/rueppellii-foundation-normal-exam)
+
+# Our lovely syllabus:
 
 ### - [really-syllabus](https://github.com/green-fox-academy/really-syllabus.git)
 
