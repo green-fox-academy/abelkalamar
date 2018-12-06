@@ -10,5 +10,5 @@ const contents = ['apple', 'banana', 'cat', 'dog'];
 
 for (let i = 0; i < list.length; i++) {
   list[i].innerText = contents[i];
-  console.log(list[i].innerText);
+  list[i].setAttribute('class', 'list')
 }
