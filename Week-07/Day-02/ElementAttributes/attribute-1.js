@@ -6,9 +6,7 @@
 
 const image = document.querySelector('img');
 console.log(image.getAttribute('src'));
-
-const picture = document.querySelector('img');
-picture.setAttribute('src', 'dog.jpg');
+image.setAttribute('src', 'dog.jpg');
 
 const link = document.querySelector('a');
 link.setAttribute('href', 'https://www.greenfoxacademy.com/');
