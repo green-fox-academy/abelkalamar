@@ -6,7 +6,7 @@ console.log(party.classList.contains(party))
 
 button.onclick = () => {
   if (party.className === 'party') {
-    party.setAttribute('class', 'nothing');
+    party.setAttribute('class', '');
   } else {
     party.setAttribute('class', 'party');
   }
