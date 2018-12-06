@@ -16,10 +16,10 @@ console.log(king);
 const businessLamp = document.querySelectorAll('.big');
 console.log(businessLamp);
 
-const conceitedKing = document.querySelectorAll('#b325, .b326');
+const conceitedKing = document.querySelectorAll('.container .asteroid');
 conceitedKing.forEach(e => {
-  alert(e.innerHTML);
+  alert(e.textContent);
 })
 
-const noBusiness = document.querySelectorAll('#b325, .b326, .b329');
+const noBusiness = document.querySelectorAll('div.asteroid');
 console.log(noBusiness);
