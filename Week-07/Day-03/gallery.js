@@ -2,6 +2,18 @@
 
 const images = ['images/mountains1.jpg', 'images/mountains2.jpg', 'images/mountains3.jpg', 'images/mountains4.jpg', 'images/mountains5.jpg', 'images/mountains6.jpg'];
 
+const fillFooter = (imagelist) => {
+  const footer = document.querySelector('.footer');
+  imagelist.forEach((e, i) => {
+    const img = document.createElement('img');
+    img.setAttribute('src', imagelist[i]);
+    footer.appendChild(img);
+  })
+}
+
+fillFooter(images);
+
+
 function gallery(imagelist) {
   let counter = 0;
   const mainImg = document.querySelector('.main-image');
@@ -10,7 +22,7 @@ function gallery(imagelist) {
   const right = document.querySelector('.right');
 
   right.onclick = () => {
-    if(counter === imagelist.length - 1) {
+    if (counter === imagelist.length - 1) {
       counter = -1;
     }
     counter++;
@@ -25,30 +37,14 @@ function gallery(imagelist) {
     mainImg.setAttribute('src', imagelist[counter]);
   }
 
+const buttons = document.querySelectorAll('.footer img');
+buttons.forEach(e => {
+  e.onclick = () => {
+    mainImg.setAttribute('src', e.getAttribute('src'));
+  }
+})
+
 }
 
 gallery(images);
 
-// let counter = 0;
-// const mainImg = document.querySelector('.main-image');
-// mainImg.setAttribute('src', images[counter]);
-// const left = document.querySelector('.left');
-// const right = document.querySelector('.right');
-
-
-// right.onclick = () => {
-//   counter++;
-//   console.log(counter);
-//   mainImg.setAttribute('src', images[counter]);
-//   mainImg.getAttribute('src');
-// }
-
-// left.onclick = () => {
-//   if (counter === 1) {
-//     counter
-//   }
-//   counter--;
-//   console.log(counter);
-//   mainImg.setAttribute('src', images[counter]);
-//   mainImg.getAttribute('src');
-// }

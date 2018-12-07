@@ -83,46 +83,23 @@ button{
 }
 
 .footer-content{
-  width: 900px;
+  width: 1200px;
   display: flex;
   justify-content: center;
 }
 
-.img{
-  width: 100px;
-  height: 100px;
-  background-size: auto 100px;
+.footer img{
+  width: 120px;
+  height: 60px;;
+  /* background-size: auto 100px; */
   overflow: hidden;
-  background-repeat: no-repeat;
-  box-shadow: 0.2em 0.2em 2em 0.2em black;
+  box-shadow: 0.2em 0.2em 1em 0.2em black;
+  margin: 10px;
+  object-fit: cover;
 }
 
 .main-image{
   max-width: 900px;
   min-height: 506.25px;
   overflow: hidden;
-}
-
-.one{
-  background-image: url("images/mountains1.jpg");
-}
-
-.two{
-  background-image: url("images/mountains2.jpg");
-}
-
-.three{
-  background-image: url("images/mountains3.jpg");
-}
-
-.four{
-  background-image: url("images/mountains4.jpg");
-}
-
-.five{
-  background-image: url("images/mountains5.jpg");
-}
-
-.six{
-  background-image: url("images/mountains6.jpg");
 }
