@@ -75,6 +75,7 @@ button{
 .button{
   width: 60px;
   background-color: #96b1d0;
+  cursor: pointer;
 }
 
 .footer-container{
