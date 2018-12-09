@@ -23,7 +23,7 @@ const images = [
   {
     src: 'images/mountains5.jpg',
     title: 'Ifen Panorama',
-    description: 'At the beginning of the 1970s the first ski lifts appeared on the Ifen, from which today\'s company, the Ifen-Bergbahn-Gesellschaft, emerged. For a long time it was mostly owned by Ruth Merckle, the wife of the pharmaceutical businessman Adolf Merckle. By taking over the Merckle family\'s 82% share and the 18% share of the family of Kleinwalsertal tourism pioneer, Alfons Herz, on 1 July 2009, the Ifen Bergbahn GmbH u. Co gained full ownership of the Kleinwalsertaler Bergbahn (KBB), Riezlern, whose main shareholders are the Allgäuer Überlandwerk and the Raiffeisen Holding Kleinwalsertal.'
+    description: 'At the beginning of the 1970s the first ski lifts appeared on the Ifen, from which today\'s company, the Ifen-Bergbahn-Gesellschaft, emerged. For a long time it was mostly owned by Ruth Merckle, the wife of the pharmaceutical businessman Adolf Merckle. By taking over the Merckle family\'s 82% share and the 18% share of the family of Kleinwalsertal tourism pioneer, Alfons Herz.'
   },
   {
     src: 'images/mountains6.jpg',
@@ -37,6 +37,7 @@ const fillFooter = (imagelist) => {
   imagelist.forEach(e => {
     const img = document.createElement('img');
     img.setAttribute('src', e.src);
+    img.setAttribute('class', 'deactive');
     footer.appendChild(img);
   })
 }
@@ -50,6 +51,18 @@ const addMainImg = (imageList, index) => {
   description.textContent = imageList[index].description;
 }
 
+const toggleThumbnails = () => {
+  const buttons = document.querySelectorAll('.footer img');
+  const mainImg = document.querySelector('.main-image');
+  buttons.forEach((e, i) => {
+    if (e.getAttribute('src') === mainImg.getAttribute('src')) {
+      e.setAttribute('class', 'active');
+    } else {
+      e.setAttribute('class', 'deactive');
+    }
+  })
+}
+
 function gallery(imageList) {
   let counter = 0;
   const left = document.querySelector('.left');
@@ -57,13 +70,15 @@ function gallery(imageList) {
 
   fillFooter(imageList);
   addMainImg(imageList, counter);
-
+  toggleThumbnails();
+  
   right.onclick = () => {
     if (counter === imageList.length - 1) {
       counter = -1;
     }
     counter++;
     addMainImg(imageList, counter);
+    toggleThumbnails();
   }
 
   left.onclick = () => {
@@ -72,13 +87,17 @@ function gallery(imageList) {
     }
     counter--;
     addMainImg(imageList, counter);
+    toggleThumbnails();
   }
 
   const buttons = document.querySelectorAll('.footer img');
   buttons.forEach((e, i) => {
-    addMainImg(imageList, i);
+    e.onclick = () => {
+      addMainImg(imageList, i);
+      toggleThumbnails();
+      counter = i;
+    }
   })
+
 }
-
 gallery(images);
-
