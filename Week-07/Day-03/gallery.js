@@ -28,7 +28,7 @@ const images = [
   {
     src: 'images/mountains6.jpg',
     title: 'Ifen Panorama',
-    description: 'The Kleinwalsertaler Bergbahn AG plans to build a link lift to the Walmendinger Horn The expansion plans were sharply criticised by several associations because they were viewed as damaging to the environment and would promote mass tourism.[7][8] The Austrian Alpine Club section in the Kleinwalsertal criticised the plans as follows: The construction of this lift cannot be done in harmony with nature as we would wish to remind those launching such an initiative!'
+    description: 'The Kleinwalsertaler Bergbahn AG plans to build a link lift to the Walmendinger Horn The expansion plans were sharply criticised by several associations because they were viewed as damaging to the environment and would promote mass tourism. The Austrian Alpine Club section in the Kleinwalsertal criticised the plans as follows: The construction of this lift cannot be done in harmony with nature as we would wish to remind those launching such an initiative!'
   }
 ]
 
