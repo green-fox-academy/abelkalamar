@@ -7,11 +7,14 @@ const getGiphies = () => {
   xhr.onload = () => {
     if (xhr.status === 200) {
       const result = JSON.parse(xhr.responseText);
-      console.log(result);
       for (let i = 0; i < result.data.length; i++) {
         let img = document.createElement('img');
         img.setAttribute('src', result.data[i].images.original_still.url);
         content.appendChild(img);
+
+        img.onclick = () => {
+          img.setAttribute('src', result.data[i].images.downsized.url);
+        }
       }
     }
   }
