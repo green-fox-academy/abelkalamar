@@ -12,15 +12,20 @@ box-sizing: border-box;
   align-items: center;
 }
 
+.content {
+  display: flex;
+  justify-content: center;
+}
+
 .container{
   width: 1200px;
-  background-color: bisque;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .container > img {
-  max-width: 200px;
-  max-height: 200px;
-  flex-wrap: wrap;
+  width: 250px;
+  height: 250px;
+  margin-top: 20px;
 }
