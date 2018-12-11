@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  }
+  
+  .container {
+    width: 1200px;
+    height: 94vh;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    background-color: bisque;
+  }
+
+  .form-row{
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-row input[type='text'] {
+    background-color: rgb(203, 228, 219);
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 30%;
+    padding: 7px;
+    font-size: 16px;
+  }
