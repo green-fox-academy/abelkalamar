@@ -13,6 +13,10 @@
     background-color: bisque;
   }
 
+  .speaker-form {
+    display: flex;
+  }
+
   .form-row{
     margin-top: 20px;
     padding: 20px;
@@ -25,7 +29,34 @@
     background-color: rgb(203, 228, 219);
     border: 1px solid black;
     border-radius: 5px;
-    width: 30%;
+    width: 100%;
     padding: 7px;
     font-size: 16px;
+  }
+
+  .form-row label {
+    margin-bottom: 15px;
+  }
+
+  .form-row button {
+    font-size: 16px;
+    font-weight: bold;
+  
+    color: #FFFFFF;
+    background-color: #5995DA;
+  
+    border: none;
+    border-radius: 3px;
+  
+    padding: 10px 40px;
+    margin: 30px;
+    cursor: pointer;
+  }
+  
+  .form-row button:hover {
+    background-color: #76AEED;
+  }
+  
+  .form-row button:active {
+    background-color: #407FC7;
   }
