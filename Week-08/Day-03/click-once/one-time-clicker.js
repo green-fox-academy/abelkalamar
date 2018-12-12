@@ -12,4 +12,3 @@ const logTimeStamp = (event) => {
 button.addEventListener('click', logTimeStamp);
 
 // 2nd solution
-
