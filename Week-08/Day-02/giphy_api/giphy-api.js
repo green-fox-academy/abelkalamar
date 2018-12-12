@@ -1,4 +1,4 @@
-
+'use strict'
 const getGiphies = () => {
   const xhr = new XMLHttpRequest();
   const URL = 'https://api.giphy.com/v1/gifs/search?api_key=PYXQGIvR8i9QDq23exxMSJShmkLRmvbP&q=cat&limit=16&offset=0&rating=G&lang=en';
@@ -20,6 +20,7 @@ const getGiphies = () => {
   }
   xhr.open('GET', URL);
   xhr.send();
+
 }
 
 getGiphies();
