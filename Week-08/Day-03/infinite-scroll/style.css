@@ -1,0 +1,21 @@
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  height: 200px;
+  width: 200px;
+}
