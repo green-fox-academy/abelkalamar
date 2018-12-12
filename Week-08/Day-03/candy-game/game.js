@@ -39,22 +39,13 @@ buyLollipop.addEventListener('click', () => {
 })
 
 buyLollipop.addEventListener('click', () => {
-  if (myLollipopCounter >= 10) {
+  if (myLollipopCounter === 10) {
     candiesPerSec++;
     myLollipopCounter = 0;
   }
   candieCreateRate.textContent = candiesPerSec;
 })
 
-// buyLollipop.addEventListener('click', () => {
-//   if (myLollipopCounter === 9) {
-//     clearInterval(interval);
-//   }
-//   if (myLollipopCounter === 10) {
-//     let interval = setInterval(periodCandies, 1000);
-//   }
-// })
-
 candyRain.addEventListener('click', candyMachine);
 
-myCandies = 2000;
+setInterval(periodCandies, 1000);
