@@ -7,6 +7,7 @@
   body {
     font-family: 'Montserrat', sans-serif;
     color: #fdfdfd;
+    font-weight: 100;
   }
   
   .container {
@@ -19,7 +20,7 @@
   }
 
   .login-box {
-    width: 40%;
+    min-width: 50%;
     background-color:	#f6c2a8;
     display: flex;
     flex-direction: column;
@@ -47,7 +48,7 @@
   label[for="cat"],
   label[for="fish"],
   label[for="no"] {
-    margin-left: 100px;
+    margin-left: 20%;
   }
 
   input[type="radio"] {
@@ -59,6 +60,7 @@
   .form-row {
     padding: 20px;
     display: flex;
+    flex-wrap: wrap;
   }
 
   div.buttons {
@@ -70,10 +72,20 @@
   button {
     color: #fff;
     padding: 10px;
-    border: 0;
+    border: 1px solid black;
     border-radius: 5px;
     background-color: #9aafc7;
     margin-bottom: 20px;
     font-size: 16px;
     text-transform: uppercase;
+  }
+
+  button:disabled {
+    background-color: #777777;   
+    color: #888888; 
+    border: 0;
+  }
+
+  .checked {
+    checked: 
   }
