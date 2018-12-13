@@ -15,10 +15,14 @@ const createDeck = (suits, values) => {
 let playerOne = [];
 let playerTwo = [];
 
+
 const dealCards = () => {
+  playerOne = [];
+  playerTwo = [];
+  cardDeck = [];
   createDeck(suits, values);
   for (let i = 0; i < 10; i++) {
-    let num = Math.round(Math.random() * cardDeck.length);
+    let num = Math.floor(Math.random() * cardDeck.length);
     if (i % 2 === 0) {
       playerOne.push(cardDeck[num]);
       cardDeck.splice(num, 1);
@@ -29,33 +33,47 @@ const dealCards = () => {
   }
 }
 
-// dealCards();
-
-// console.log(playerOne);
-// console.log(playerTwo);
-
-
 const firstPlayer = document.querySelector('.player-one');
 const secondPlayer = document.querySelector('.player-two');
 const firstCards = document.querySelectorAll('.player-one img');
 const secondCards = document.querySelectorAll('.player-two img');
 const dealButton = document.querySelector('.dealCards');
-
-// console.log(firstCards[0]);
+const result = document.querySelector('.result');
 
 const showCards = () => {
   dealCards();
   playerOne.forEach((e, i) => {
     firstCards[i].setAttribute('src', `./img/${e}.jpg`);
-  })
+  });
   playerTwo.forEach((e, i) => {
     secondCards[i].setAttribute('src', `./img/${e}.jpg`);
-  })
-  playerOne = [];
-  playerTwo = [];
+  });
+}
+
+const evaluate = () => {
+  const printWinner = document.querySelector('.winner');
+  const firstScore = document.querySelector('.firstScore');
+  const secondScore = document.querySelector('.secondScore');
+  let firstDeckValue = 0;
+  let secondDeckValue = 0;
+  playerOne.forEach(e => {
+    firstDeckValue += values.indexOf(e[0]) + 1;
+  });
+  playerTwo.forEach(e => {
+    secondDeckValue += values.indexOf(e[0]) + 1;
+  });
+  firstScore.textContent = `1st Player\'s score: ${firstDeckValue}!`;
+  secondScore.textContent = `2nd Player\'s score: ${secondDeckValue}!`;
+  if (firstDeckValue === secondDeckValue) {
+    printWinner.textContent = `It\'s a draw`;
+  } else if (firstDeckValue > secondDeckValue) {
+    printWinner.innerHTML = `1st Player wins!`;
+  } else {
+    printWinner.textContent = `2nd Player wins!`;
+  }
 }
 
 dealButton.addEventListener('click', showCards);
-
+result.addEventListener('click', evaluate);
 
 

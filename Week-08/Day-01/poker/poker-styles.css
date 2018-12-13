@@ -5,7 +5,8 @@ box-sizing: border-box;
 }
 
 body {
-  background-color:	#420c0c
+  background-color:	#420c0c;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .container {
@@ -37,7 +38,6 @@ header, footer {
   border-radius: 5px;
   background-color:	#eebc77;
   font-size: 30px;
-  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   margin: 20px auto;
   text-align: center
@@ -70,20 +70,42 @@ img {
   height: 140px;
 }
 
-.stats p {
+.title {
   font-size: 30px;
   margin: 20px auto;
   color: #420c0c;
-  font-family: 'Montserrat', sans-serif;
 }
 
-.dealCards {
-  width: 50%;
+.player-one,
+.player-two {
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid red;
+}
+
+.dealCards,
+.result {
+  width: 70%;
   padding: 10px;
   border: 0;
   border-radius: 10px;
-  margin: 20px;
+  margin: 20px auto;
   text-transform: uppercase;
   font-size: 16px;
   background-color: #eebc77;
+  text-justify: auto;
+}
+
+.firstScore,
+.secondScore,
+.winner {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #420c0c;
+  margin: 20px auto;
+}
+
+.winner {
+  font-size: 30px;
+  color: #fff;
 }
