@@ -7,14 +7,24 @@ box-sizing: border-box;
 body {
   background-color:	#420c0c;
   font-family: 'Montserrat', sans-serif;
+  position: relative;
 }
-
-.container {
+/* 
+body img {
   width: 100vw;
   height: 100vh;
+  position: absolute;
+  z-index: 2;
+} */
+
+.container {
+  width: 99vw;
+  height: 99vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .left-side {
@@ -80,7 +90,7 @@ img {
 .player-two {
   padding: 5px;
   border-radius: 10px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
 .dealCards,
@@ -94,6 +104,12 @@ img {
   font-size: 16px;
   background-color: #eebc77;
   text-justify: auto;
+  cursor: pointer;
+}
+
+.dealCards:hover,
+.result:hover {
+  background-color: #e9ddcc;
 }
 
 .firstScore,

@@ -15,7 +15,6 @@ const createDeck = (suits, values) => {
 let playerOne = [];
 let playerTwo = [];
 
-
 const dealCards = () => {
   playerOne = [];
   playerTwo = [];
@@ -39,6 +38,9 @@ const firstCards = document.querySelectorAll('.player-one img');
 const secondCards = document.querySelectorAll('.player-two img');
 const dealButton = document.querySelector('.dealCards');
 const result = document.querySelector('.result');
+const printWinner = document.querySelector('.winner');
+const firstScore = document.querySelector('.firstScore');
+const secondScore = document.querySelector('.secondScore');
 
 const showCards = () => {
   dealCards();
@@ -48,12 +50,12 @@ const showCards = () => {
   playerTwo.forEach((e, i) => {
     secondCards[i].setAttribute('src', `./img/${e}.jpg`);
   });
+  firstScore.textContent = ``;
+  secondScore.textContent = ``;
+  printWinner.textContent = ``;
 }
 
 const evaluate = () => {
-  const printWinner = document.querySelector('.winner');
-  const firstScore = document.querySelector('.firstScore');
-  const secondScore = document.querySelector('.secondScore');
   let firstDeckValue = 0;
   let secondDeckValue = 0;
   playerOne.forEach(e => {
@@ -73,7 +75,40 @@ const evaluate = () => {
   }
 }
 
+const slide = document.querySelector('.slides');
+const body = document.querySelector('body');
+const container = document.querySelector('.container');
+
+let slideNum = 1;
+const slides = (event) => {
+  if (event.keyCode === 13) {
+    slideNum = 9;
+    let img = document.createElement('img');
+    img.setAttribute('src', `../../../../week08demo/dia${slideNum}.png`)
+    img.style.objectFit = 'fit';
+    img.style.width = '100vw';
+    img.style.height = '100vh';
+    img.style.position = 'absolute';
+    img.style.zIndex = '2';
+    body.insertBefore(img, container);
+  }
+  if (slideNum === 9) {
+    body.removeChild(slide);
+  }
+  if (event.keyCode === 39) {
+    slide.setAttribute('src', `../../../../week08demo/dia${slideNum}.png`)
+    slideNum++;
+  }
+  if (event.keyCode === 37) {
+    slide.setAttribute('src', `../../../../week08demo/dia${slideNum - 1}.png`);
+    if(slideNum !== 0) {
+      slideNum--;
+    }
+  }
+}
+
 dealButton.addEventListener('click', showCards);
 result.addEventListener('click', evaluate);
 
+document.addEventListener('keydown', slides);
 
