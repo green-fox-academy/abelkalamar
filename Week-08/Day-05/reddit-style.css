@@ -6,12 +6,11 @@ box-sizing: border-box;
 
 body {
   font-family: 'Lato', sans-serif;
-  color: 
 }
 
 .container {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex; 
   justify-content: center;
   background-color:#010508;
@@ -23,6 +22,7 @@ body {
   flex-direction: column;
   position: relative;
   background-color: #EEEEEE;
+
 }
 
 header {
@@ -55,9 +55,9 @@ header img {
 
 main {
   display: flex;
-  padding: 30px 0px;
+  padding: 20px 0px;
   justify-content: space-between;
-  height: 60%;
+  min-height: 60%;
   width: 100%;
 }
 
@@ -66,6 +66,8 @@ article {
   background-color: #fff;
   width: 63%;
   margin-left: 15px;
+  flex-direction: column;
+  height: 100%;
 }
 
 aside {
@@ -73,13 +75,13 @@ aside {
   width: 33%;
   background-color: #ffdcb9;
   margin-right: 15px;
+  /* height: 100%; */
 }
 
 
 .topic {
   width: 100%;
   display: flex;
-  max-height: 30%;
   border-bottom: 1px solid #EEEEEE;
 }
 
@@ -87,6 +89,7 @@ aside {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 10px 0px;
 }
 
 .upVote,
@@ -135,7 +138,7 @@ aside {
 
 }
 
-.topicBody p {
+.topicBody .topicTitle {
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.1em;
@@ -143,16 +146,20 @@ aside {
 
 .links {
   width: 100%;
-  margin-top: 10px;  
   display: flex;
   justify-content: space-around;
 }
 
-.links a {
+.links a,
+.author {
   text-decoration: none;
   color: #888888;
   font-size: 12px;
   font-weight: 900;
+}
+
+.author {
+  padding-top: 10px;
 }
 
 .links a:hover {
