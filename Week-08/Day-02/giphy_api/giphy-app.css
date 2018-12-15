@@ -12,20 +12,20 @@ box-sizing: border-box;
   align-items: center;
 }
 
-.content {
+.container {
   display: flex;
   justify-content: center;
 }
 
-.container{
+.content{
   width: 1200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.container > img {
+.content > img {
   width: 250px;
   height: 250px;
-  margin-top: 20px;
+  margin: 5px;
 }

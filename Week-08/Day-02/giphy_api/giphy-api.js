@@ -2,7 +2,7 @@
 const getGiphies = () => {
   const xhr = new XMLHttpRequest();
   const URL = 'https://api.giphy.com/v1/gifs/search?api_key=PYXQGIvR8i9QDq23exxMSJShmkLRmvbP&q=cat&limit=16&offset=0&rating=G&lang=en';
-  const content = document.querySelector('.container');
+  const content = document.querySelector('.content');
 
   xhr.onload = () => {
     if (xhr.status === 200) {
