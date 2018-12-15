@@ -5,7 +5,6 @@ xhr.onload = () => {
   const container = document.querySelector('.container');
   if (xhr.status === 200) {
     const content = JSON.parse(xhr.response);
-    console.log(content.response.docs);
     content.response.docs.forEach(e => {
       const article = document.createElement('artice');
       const header = document.createElement('h2');
@@ -18,7 +17,6 @@ xhr.onload = () => {
       article.appendChild(header);
       article.appendChild(snippet);
       article.appendChild(date);
-
     });
   }
 }
