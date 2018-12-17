@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Coctails</title>
+  <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+  <h1>Coctails</h1>
+  <a href="#">ALL</a>
+  <% alcoholList.forEach(e => { %>
+    <a href="#"><%= e %></a>
+  <% }) %>
+  <table>
+    <thead>
+      <tr>
+        <th>NAME</th>
+        <th>PRICE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cocktailList.forEach( e=> { %>
+      <tr>
+        <td>
+          <p><%= e.name %></p>
+          <p><%= e.contains %></p>
+        </td>
+        <td>
+          <%= e.price %> Ft</td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+
+</body>
+
+</html>
