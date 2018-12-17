@@ -9,14 +9,16 @@
 
 <body>
   <h1>Coctails</h1>
-  <a href="#">ALL</a>
+  <a href="/">ALL</a>
   <% alcoholList.forEach(e => { %>
-    <a href="#"><%= e %></a>
+    <a href="/?alcohol=<%= e %>"">
+      <%= e %>
+    </a>
   <% }) %>
   <table>
     <thead>
       <tr>
-        <th>NAME</th>
+        <th class="name">NAME</th>
         <th>PRICE</th>
       </tr>
     </thead>
@@ -24,10 +26,10 @@
       <% cocktailList.forEach( e=> { %>
       <tr>
         <td>
-          <p><%= e.name %></p>
-          <p><%= e.contains %></p>
+          <p class="cocktail"><%= e.name %></p>
+          <p class="alcohol"><%= e.contains %></p>
         </td>
-        <td>
+        <td class="price">
           <%= e.price %> Ft</td>
       </tr>
       <% }) %>
