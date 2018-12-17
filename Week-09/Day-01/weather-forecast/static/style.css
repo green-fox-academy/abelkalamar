@@ -5,5 +5,66 @@ box-sizing: border-box;
 }
 
 body {
-  background-color: bisque;
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  text-transform: none;
+  color: #415162;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 800px;
+  background-color: #ECF0F1;
+}
+
+.weather {
+  margin: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 0.5px 0.5px black;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab {
+  margin: 50px 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.cityName {
+  flex: 2;
+}
+
+.degrees {
+  font-size: 50px;
+  font-weight: 900;
+  margin-left: 150px;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.img {
+  flex: 1;
+}
+
+.img img{
+  width: 100px;
+  height: 100px;
+  margin-left: 40px;
+  align-self: center;
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Detailed Forecast</title>
+  <link rel="stylesheet" href="../static/detailedStyle.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="content">
+    <div class="cityName"><%= city %></div>
+    <% forecasts.forEach(e => { %>
+      <div class="tab">
+        <div class="cityName">
+          <p class="city">
+            <h1>
+              <%= e.city %>
+            </h1>
+          </p>
+          <p class="location">
+            <h3>
+              <%= e.location %>
+            </h3>
+          </p>
+        </div>
+        <div class="degrees">
+          <%= e.weather[0].temp %> &#8451
+        </div>
+        <div class="img">
+          <img src="../static/<%= e.weather[0].icon %>.png">
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</body>
+
+</html>
