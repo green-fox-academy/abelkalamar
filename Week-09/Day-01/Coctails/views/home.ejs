@@ -11,30 +11,38 @@
   <h1>Coctails</h1>
   <a href="/">ALL</a>
   <% alcoholList.forEach(e => { %>
-    <a href="/?alcohol=<%= e %>"">
+  <a href="/?alcohol=<%= e %>"">
       <%= e %>
     </a>
   <% }) %>
   <table>
     <thead>
       <tr>
-        <th class="name">NAME</th>
-        <th>PRICE</th>
-      </tr>
+        <th class="
+    name">NAME</th>
+    <th>PRICE</th>
+    </tr>
     </thead>
     <tbody>
       <% cocktailList.forEach( e=> { %>
       <tr>
         <td>
-          <p class="cocktail"><%= e.name %></p>
-          <p class="alcohol"><%= e.contains %></p>
+          <p class="cocktail">
+            <%= e.name %>
+            <% if(!e.isAlcoholic){ %>
+              <span>(non-alcoholic)</span>
+            <% } %>
+          </p>
+          <p class="alcohol">
+            <%= e.contains %>
+          </p>
         </td>
         <td class="price">
           <%= e.price %> Ft</td>
       </tr>
       <% }) %>
     </tbody>
-  </table>
+    </table>
 
 
 </body>
