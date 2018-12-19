@@ -15,7 +15,7 @@ app.get('/doubling', (req, res) => {
   const { input } = req.query;
   const doubling = {
     "received": input,
-    "result": input * 2 
+    "result": input * 2
   };
   if (input) {
     res.json(doubling);
@@ -25,6 +25,26 @@ app.get('/doubling', (req, res) => {
     })
   }
 })
+
+app.get('/greeter', (req, res) => {
+  const { name, title } = req.query;
+  const greeting = {
+    "welcome_message": `Oh, hi there ${name}, my dear ${title}!`,
+  };
+  if (name && title) {
+    res.json(greeting);
+  } else if (!name) {
+    res.json({
+      "error": "Please provide a name!",
+    })
+  } else if (!title) {
+    res.json({
+      "error": "Please provide a title!",
+    })
+  }
+})
+
+
 
 app.listen(PORT, () => {
   console.log('Listening to PORT 3000');
