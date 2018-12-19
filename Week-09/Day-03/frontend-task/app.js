@@ -79,15 +79,18 @@ const factor = (num) => {
 
 app.post('/dountil/:action', (req, res) => {
   const param = req.params.action;
-  if (param === "sum") {
+  const until = req.body.until;
+  if (isNaN(until)) {
+    res.json('error: please provide a number')
+  } else if (param === "sum" && !isNaN(until)) {
     res.json(
       {
-        "result": action(req.body.until)
+        "result": action(until)
       });
-  } else if (param === "factor") {
+  } else if (param === "factor" && !isNaN(until)) {
     res.json(
       {
-        "result": factor(req.body.until)
+        "result": factor(until)
       });
   } else {
     res.json('error: please provide input')
