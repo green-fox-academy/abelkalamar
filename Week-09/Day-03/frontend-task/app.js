@@ -3,9 +3,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const bp = require('body-parser');
+
 const PORT = 8080;
 
 app.use('/assets', express.static('assets'));
+app.use(bp());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'))
@@ -53,6 +56,41 @@ app.get('/appenda/:appendable', (req, res) => {
     res.json(appenda);
   } else {
     res.status(404).send();
+  }
+})
+
+const action = (num) => {
+  let result = 0;
+  while (num > 0) {
+    result += num;
+    num--;
+  }
+  return result;
+}
+
+const factor = (num) => {
+  let result = 1;
+  while (num > 0) {
+    result *= num;
+    num--;
+  }
+  return result;
+}
+
+app.post('/dountil/:action', (req, res) => {
+  const param = req.params.action;
+  if (param === "sum") {
+    res.json(
+      {
+        "result": action(req.body.until)
+      });
+  } else if (param === "factor") {
+    res.json(
+      {
+        "result": factor(req.body.until)
+      });
+  } else {
+    res.json('error: please provide input')
   }
 })
 
