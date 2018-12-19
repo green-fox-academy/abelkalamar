@@ -44,7 +44,17 @@ app.get('/greeter', (req, res) => {
   }
 })
 
-
+app.get('/appenda/:appendable', (req, res) => {
+  const word = req.params.appendable;
+  const appenda = {
+    "appended": `${word}a`
+  }
+  if (word) {
+    res.json(appenda);
+  } else {
+    res.status(404).send();
+  }
+})
 
 app.listen(PORT, () => {
   console.log('Listening to PORT 3000');
