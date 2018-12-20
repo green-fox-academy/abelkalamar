@@ -4,11 +4,20 @@ margin: 0;
 box-sizing: border-box;
 }
 
+thead {
+  font-size: 30px;
+}
+
 td {
+  font-size: 20px;
   border: 1px solid black;
+  padding: 5px;
 }
 
 table {
+  border-collapse: collapse;
+  border-spacing: 0;
   margin: 50px;
 }
+
 

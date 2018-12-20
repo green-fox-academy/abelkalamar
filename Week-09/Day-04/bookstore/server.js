@@ -7,6 +7,8 @@ const mysql = require('mysql');
 const app = express();
 const PORT = 3000;
 
+app.use('/static', express.static('static'));
+
 const conn = mysql.createConnection({
   host: process.env.DB_HOST,
   database: process.env.DB_DATABASE,
@@ -29,14 +31,14 @@ app.listen(PORT, () => {
 const findBookTitles = 'SELECT book_name FROM book_mast';
 
 app.get('/', (req, res) => {
-  res.sendFile('./index.html');
+  res.sendFile(__dirname + '/index.html');
 })
 
 app.get('/booknames', (req, res) => {
   conn.query(findBookTitles, (err, data) => {
     if (err) {
-      res.status(500).send(err);
+      res.status(500).json(err);
     }
-    res.status(200).send(data);
+    res.status(200).json(data);
   })
 });
