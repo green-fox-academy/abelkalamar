@@ -2,6 +2,34 @@
 padding: 0;
 margin: 0;
 box-sizing: border-box;
+font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 1200px;
+  display: flex;
+}
+
+form {
+  margin: 50px;
+  display: flex;
+}
+
+label{
+  font-size: 20px;
+  padding-top: 5px;
+  margin-right: 10px;
+}
+
+input {
+  padding: 5px;
+  font-size: 20px;
+  margin-right: 60px;
 }
 
 th {
@@ -22,7 +50,6 @@ td {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  margin: 50px;
 }
 
 
