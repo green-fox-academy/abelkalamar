@@ -1,7 +1,7 @@
 'use strict'
 
 const xhr = new XMLHttpRequest();
-const URL = 'http://localhost:3000/booknames'
+const URL = '/bookdata'
 
 const sendHTTPRequest = (url, method, callback) => {
   xhr.open(method, url);
@@ -15,13 +15,41 @@ const sendHTTPRequest = (url, method, callback) => {
 
 sendHTTPRequest(URL, 'GET', (response) => {
   console.log(response);
-  
-  const table = document.querySelector('.booknames')
-  response.forEach(title => {
-    const tr = document.createElement('tr');
-    const td = document.createElement('td');
-    td.innerText = title.book_name;
-    table.appendChild(tr);
-    tr.appendChild(td);
+  const table = document.querySelector('.bookstore')
+  const tHead = document.createElement('tr');
+  const thBookTitle = document.createElement('th');
+  const thAutName = document.createElement('th');
+  const thCat = document.createElement('th');
+  const thPubName = document.createElement('th');
+  const thPrice = document.createElement('th');
+  thBookTitle.textContent = 'Book Title';
+  thAutName.textContent = 'Author';
+  thCat.textContent = 'Category';
+  thPubName.textContent = 'Publisher';
+  thPrice.textContent = 'Price';
+  tHead.appendChild(thBookTitle);
+  tHead.appendChild(thAutName);
+  tHead.appendChild(thCat);
+  tHead.appendChild(thPubName);
+  tHead.appendChild(thPrice);
+  table.appendChild(tHead);
+  response.forEach(row => {
+    const tBody = document.createElement('tr');
+    const tdBookTitle = document.createElement('td');
+    const tdAutName = document.createElement('td');
+    const tdCat = document.createElement('td');
+    const tdPubName = document.createElement('td');
+    const tdPrice = document.createElement('td');
+    tdBookTitle.textContent = row.book_name;
+    tdAutName.textContent = row.aut_name;
+    tdCat.textContent = row.cate_descrip;
+    tdPubName.textContent = row.pub_name;
+    tdPrice.textContent = row.book_price;
+    tBody.appendChild(tdBookTitle);
+    tBody.appendChild(tdAutName);
+    tBody.appendChild(tdCat);
+    tBody.appendChild(tdPubName);
+    tBody.appendChild(tdPrice);
+    table.appendChild(tBody);
   })
 });

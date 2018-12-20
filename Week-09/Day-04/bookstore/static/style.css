@@ -4,14 +4,19 @@ margin: 0;
 box-sizing: border-box;
 }
 
-thead {
-  font-size: 30px;
+th {
+  font-size: 24px;
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
 }
 
 td {
   font-size: 20px;
   border: 1px solid black;
-  padding: 5px;
+  padding: 10px;
+  text-align: center;
+
 }
 
 table {
