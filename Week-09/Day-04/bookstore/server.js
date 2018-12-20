@@ -32,28 +32,34 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 })
 
-const findBookTitles = 'SELECT book_name FROM book_mast';
-const findBookDatas = `SELECT DISTINCT book_name, aut_name, cate_descrip, pub_name, book_price 
-FROM book_mast
-INNER JOIN author ON book_mast.aut_id = author.aut_id
-INNER JOIN category ON book_mast.cate_id = category.cate_id
-INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id;`
-
-
-// app.get('/booknames', (req, res) => {
-//   conn.query(findBookTitles, (err, data) => {
-//     if (err) {
-//       res.status(500).json(err);
-//     }
-//     res.status(200).json(data);
-//   })
-// });
-
 app.get('/bookdata', (req, res) => {
+  const { category } = req.query;
+  const filterCategory = `SELECT DISTINCT book_name, aut_name, cate_descrip, pub_name, book_price 
+    FROM book_mast
+    INNER JOIN author ON book_mast.aut_id = author.aut_id
+    INNER JOIN category ON book_mast.cate_id = category.cate_id
+    INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id
+    WHERE cate_descrip = '${category}';`
+  if (category) {
+    console.log('fatter');
+    conn.query(filterCategory, (err, filteredData) => {
+      if (err) {
+        res.status(500).json(err);
+      }
+      res.status(200).json(filteredData);
+    });
+  } else {
+    const findBookDatas = `SELECT DISTINCT book_name, aut_name, cate_descrip, pub_name, book_price 
+      FROM book_mast
+      INNER JOIN author ON book_mast.aut_id = author.aut_id
+      INNER JOIN category ON book_mast.cate_id = category.cate_id
+      INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id;`
     conn.query(findBookDatas, (err, data) => {
       if (err) {
         res.status(500).json(err);
       }
       res.status(200).json(data);
     })
-  });
+  }
+});
+
