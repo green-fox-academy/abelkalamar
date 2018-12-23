@@ -59,6 +59,7 @@ button.onclick = () => {
   sendHttpRequest('GET', `${url}?search=${name}`, (response) => {
     const content = response.results;
     clearer(characters);
+    clearer(movieList);
     printChar(content);
     selectChar(content);
   })
