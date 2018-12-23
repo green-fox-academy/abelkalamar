@@ -9,12 +9,40 @@
 const section = document.querySelector('.section');
 
 const createElements = (parent) => {
-  for(let i = 2; i < 101; i++) {
+  for (let i = 1; i < 101; i++) {
     let div = document.createElement('div');
     div.textContent = i;
+    div.setAttribute('class', i);
     parent.appendChild(div);
   }
 }
 
-createElements(section);
+let classNum = 1;
 
+const isItPrime = () => {
+  const divs = document.querySelectorAll('div');
+  divs.forEach(e => {
+    if (e.getAttribute('class') == classNum) {
+      console.log(e);
+      let num = classNum;
+      for (let i = 1; i < num; i++) {
+        if (num % i === 0 || num === 1 || num === 0) {
+          element.setAttribute('class', 'not-prime');
+          console.log('not-prime');
+          return;
+        } else {
+          element.setAttribute('class', 'prime');
+          console.log('prime');
+        }
+      }
+    }
+  })
+  classNum++;
+}
+
+createElements(section);
+isItPrime();
+
+// while() {
+//   setInterval(isItPrime, 100)
+// }
