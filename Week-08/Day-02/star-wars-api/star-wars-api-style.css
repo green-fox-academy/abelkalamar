@@ -2,10 +2,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  letter-spacing: 0.2em;
   }
   
   .container {
-    width: 1200px;
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
     align-items: flex-start;
     margin: 0 auto;
@@ -14,11 +16,12 @@
 
   .speaker-form {
     display: flex;
+    padding: 50px 0px 0px 50px;
+    height: 23%;
   }
 
   .form-row{
     margin-top: 20px;
-    padding: 20px;
     font-size: 20px;
     display: flex;
     flex-direction: column;
@@ -62,11 +65,29 @@
 
   .main {
     margin: 20px;
-
+    display: flex;
+    height: 70%;
+    position: relative;
   }
 
   .main p {
     font-size: 16px;
     padding: 10px;
     letter-spacing: 0.2em;
+    cursor: pointer;
+    color: yellow;
   }
+
+  .charList {
+    height: 100%;
+    max-width: 50%;
+  }
+
+  .movieList {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 50%;
+  }
+
+
