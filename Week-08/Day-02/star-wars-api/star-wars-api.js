@@ -12,10 +12,15 @@ const clearer = (div) => {
 
 const selectChar = (data) => {
   characters.addEventListener('click', (event) => {
+    clearer(movieList);
     let selectedChar = event.target.dataset.name;
     data.forEach(e => {
       if (e.name === selectedChar) {
-        printMovies(e.films);
+        e.films.forEach(e => {
+          sendHttpRequest('GET', e, (res) => {
+            printMovies(res.title);
+          })
+        })
       }
     })
   })
@@ -31,13 +36,10 @@ const printChar = (list) => {
   });
 }
 
-const printMovies = (list) => {
-  clearer(movieList);
-  list.forEach(e => {
-    let movieTitle = document.createElement('p');
-    movieTitle.textContent = e;
-    movieList.appendChild(movieTitle);
-  });
+const printMovies = (title) => {
+  let movieTitle = document.createElement('p');
+  movieTitle.textContent = title;
+  movieList.appendChild(movieTitle);
 }
 
 const sendHttpRequest = (method, url, callback) => {
