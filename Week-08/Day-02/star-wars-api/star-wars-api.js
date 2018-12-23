@@ -1,17 +1,23 @@
 const xhr = new XMLHttpRequest();
 const url = 'https://swapi.co/api/people/';
 const characters = document.querySelector('.charList');
+const movieList = document.querySelector('.movieList');
 const button = document.querySelector('button');
 
-const clearer = () => {
-  while (characters.firstChild) {
-    characters.removeChild(characters.firstChild);
+const clearer = (div) => {
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
   }
 }
 
-const selectChar = () => {
+const selectChar = (data) => {
   characters.addEventListener('click', (event) => {
-    console.log(event.target);
+    let selectedChar = event.target.dataset.name;
+    data.forEach(e => {
+      if (e.name === selectedChar) {
+        printMovies(e.films);
+      }
+    })
   })
 }
 
@@ -19,23 +25,19 @@ const printChar = (list) => {
   list.forEach(e => {
     let charName = document.createElement('p');
     charName.textContent = e.name;
+    charName.classList.add('charName');
+    charName.setAttribute('data-name', e.name);
     characters.appendChild(charName);
   });
 }
 
-const turnPage = (nextPage) => {
-  while (nextPage) {
-    console.log('ok');
-    const newXHR = new XMLHttpRequest();
-    newXHR.onload = () => {
-      if (newXHR.status === 200) {
-        const nextContent = JSON.parse(newXHR.responseText);
-        printChar(nextContent.results);
-        newXHR.open('GET', `${content.next}`);
-        newXHR.send();
-      }
-    }
-  }
+const printMovies = (list) => {
+  clearer(movieList);
+  list.forEach(e => {
+    let movieTitle = document.createElement('p');
+    movieTitle.textContent = e;
+    movieList.appendChild(movieTitle);
+  });
 }
 
 const sendHttpRequest = (method, url, callback) => {
@@ -53,11 +55,10 @@ button.onclick = () => {
   const inputValue = document.querySelector('#full-name');
   let name = inputValue.value;
   sendHttpRequest('GET', `${url}?search=${name}`, (response) => {
-    const content = response;
-    console.log(content);
-    clearer();
-    printChar(content.results);
-    selectChar();
+    const content = response.results;
+    clearer(characters);
+    printChar(content);
+    selectChar(content);
   })
 }
 
