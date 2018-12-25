@@ -20,29 +20,32 @@ const createElements = (parent) => {
 let classNum = 1;
 
 const isItPrime = () => {
-  const divs = document.querySelectorAll('div');
-  divs.forEach(e => {
-    if (e.getAttribute('class') == classNum) {
-      console.log(e);
-      let num = classNum;
-      for (let i = 1; i < num; i++) {
-        if (num % i === 0 || num === 1 || num === 0) {
-          element.setAttribute('class', 'not-prime');
-          console.log('not-prime');
-          return;
+  console.log('ok');
+  if (classNum <= 100) {
+    const divs = document.querySelectorAll('div');
+    divs.forEach(e => {
+      if (e.getAttribute('class') == classNum) {
+        if (classNum === 1) {
+          e.setAttribute('class', 'not-prime');
+        } else if (classNum === 2) {
+          e.setAttribute('class', 'prime');
         } else {
-          element.setAttribute('class', 'prime');
-          console.log('prime');
+          let num = classNum;
+          for (let i = 2; i < num; i++) {
+            if (num % i === 0) {
+              e.setAttribute('class', 'not-prime');
+              return;
+            } else {
+              e.setAttribute('class', 'prime');
+            }
+          }
         }
       }
-    }
-  })
-  classNum++;
+    })
+    classNum++;
+  }
 }
 
 createElements(section);
-isItPrime();
+setInterval(isItPrime, 100);
 
-// while() {
-//   setInterval(isItPrime, 100)
-// }
