@@ -2,7 +2,7 @@
 padding: 0;
 margin: 0;
 box-sizing: border-box;
-font-family: sans-serif;
+font-family: 'Montserrat', sans-serif;
 }
 
 .container {
@@ -15,17 +15,18 @@ font-family: sans-serif;
   display: flex;
 }
 
-form {
-  margin: 50px;
-  display: flex;
-  flex-wrap: wrap;
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 60px;
+  letter-spacing: 0.1em;
 }
 
-input[type="submit"] {
-  margin-top: 20px;
-  font-size: 20px;
-  padding:10px;
-  width: 200px;
+form {
+  margin: 50px 0px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 label{
@@ -34,10 +35,15 @@ label{
   margin-right: 10px;
 }
 
-input {
+input, select {
   padding: 5px;
-  font-size: 20px;
+  font-size: 18px;
   margin-right: 60px;
+  width: 200px;
+}
+
+.pgt {
+  margin-right: 0;
 }
 
 th {

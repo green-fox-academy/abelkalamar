@@ -1,7 +1,7 @@
 'use strict'
 
 const xhr = new XMLHttpRequest();
-const URL = '/bookdata'
+const URL = '/bookdata';
 
 const sendHTTPRequest = (url, method, callback) => {
   xhr.open(method, url);
