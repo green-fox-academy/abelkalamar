@@ -39,7 +39,7 @@ input, select {
   padding: 5px;
   font-size: 18px;
   margin-right: 60px;
-  width: 200px;
+  min-width: 200px;
 }
 
 .pgt {
