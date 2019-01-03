@@ -111,6 +111,12 @@ form.addEventListener('change', (event => {
   if (publisher.value !== 'publisher') {
     url += `publisher=${publisher.value}&`
   }
+  if (plt.value) {
+    url += `plt=${plt.value}&`
+  }
+  if (pgt.value) {
+    url += `pgt=${pgt.value}&`
+  }
   console.log(url);
   sendHTTPRequest('GET', url, (response) => {
     createTable(response);
