@@ -5,9 +5,10 @@ require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
-const PORT = 3000;
+const port = 3000;
 
 app.use('/static', express.static('static'));
+app.use(express.json());
 
 const conn = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -22,44 +23,30 @@ conn.connect((err) => {
     return;
   }
   console.log('Connected to database', '\n');
-})
+});
 
-app.listen(PORT, () => {
-  console.log(`Server is running on PORT ${PORT}`);
-})
+app.listen(port, () => {
+  console.log(`Server is running on PORT ${port}`);
+});
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-})
+  res.sendFile(__dirname + '/index.html')
+});
 
 app.get('/bookdata', (req, res) => {
   const { category } = req.query;
-  const filterCategory = `SELECT DISTINCT book_name, aut_name, cate_descrip, pub_name, book_price 
-    FROM book_mast
-    INNER JOIN author ON book_mast.aut_id = author.aut_id
-    INNER JOIN category ON book_mast.cate_id = category.cate_id
-    INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id
-    WHERE cate_descrip = '${category}';`
+  let bookinfo = `SELECT book_name, aut_name, cate_descrip, pub_name, book_price
+  FROM book_mast
+  JOIN author ON book_mast.aut_id = author.aut_id
+  JOIN category ON book_mast.cate_id = category.cate_id
+  JOIN publisher ON book_mast.pub_id = publisher.pub_id`
   if (category) {
-    console.log('fatter');
-    conn.query(filterCategory, (err, filteredData) => {
-      if (err) {
-        res.status(500).json(err);
-      }
-      res.status(200).json(filteredData);
-    });
-  } else {
-    const findBookDatas = `SELECT DISTINCT book_name, aut_name, cate_descrip, pub_name, book_price 
-      FROM book_mast
-      INNER JOIN author ON book_mast.aut_id = author.aut_id
-      INNER JOIN category ON book_mast.cate_id = category.cate_id
-      INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id;`
-    conn.query(findBookDatas, (err, data) => {
-      if (err) {
-        res.status(500).json(err);
-      }
-      res.status(200).json(data);
-    })
+    bookinfo += ` WHERE cate_descrip = '${category}';`
   }
+  conn.query(bookinfo, (err, data) => {
+    if (err) {
+      res.status(500).json(err);
+    }
+    res.status(200).json(data);
+  });
 });
-
