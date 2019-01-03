@@ -1,7 +1,7 @@
 'use strict'
 
 const xhr = new XMLHttpRequest();
-let url = `/bookdata`;
+let url = `/bookdata?`;
 
 const sendHTTPRequest = (method, url, callback) => {
   xhr.open(method, url);
@@ -105,15 +105,16 @@ const createPublisherList = (row) => {
 const form = document.querySelector('.filter');
 const { category, publisher, plt, pgt } = form.elements;
 form.addEventListener('change', (event => {
-  if (category.value) {
-    url += `?category=${category.value}`
+  if (category.value !== 'category') {
+    url += `category=${category.value}&`
   }
-  if (category.value === 'category') {
-    url = `/bookdata`;
+  if (publisher.value !== 'publisher') {
+    url += `publisher=${publisher.value}&`
   }
+  console.log(url);
   sendHTTPRequest('GET', url, (response) => {
     createTable(response);
     console.log(response);
   });
-  url = `/bookdata`;
+  url = `/bookdata?`;
 }))
