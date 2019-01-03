@@ -117,10 +117,8 @@ form.addEventListener('change', (event => {
   if (pgt.value) {
     url += `pgt=${pgt.value}&`
   }
-  console.log(url);
   sendHTTPRequest('GET', url, (response) => {
     createTable(response);
-    console.log(response);
   });
   url = `/bookdata?`;
 }))
