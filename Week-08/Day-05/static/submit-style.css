@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .container {
+    width: 100vw;
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+    background-color:#010508;
+  }
+  
+  .content {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #EEEEEE;
+  
+  }
+  
+  header {
+    position: relative;
+    width: 100%;
+    height: 40%;
+    overflow: hidden;
+    background-image: url('./images/Alex-Honnold_SquareSpace.jpg');
+    object-fit: fill;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  
+  header p {
+    position: absolute;  
+    text-transform: uppercase;
+    font-size: 40px;
+    color:#444454;
+    top: 40%;
+    left: 53%;
+  }
+  
+  header img {
+    position: absolute; 
+    top: 40%;
+    left: 87%;
+    width: 45px;
+    height: 45px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 100%;
+    padding: 50px;
+    margin: 20px;
+  }
+
+  input, label {
+    font-size: 20px;
+    padding: 10px;
+    display: flex;
+    margin: 20px;
+    font-weight: 700;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    display: flex;
+  }
+
+  input[type="submit"] {
+    width: 200px;
+    background-color: rgb(104, 104, 231);
+    text-decoration: none;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin: 50px 20px;
+    display: flex;
+  }

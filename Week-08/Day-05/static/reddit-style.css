@@ -1,0 +1,193 @@
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex; 
+  justify-content: center;
+  background-color:#010508;
+}
+
+.content {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #EEEEEE;
+
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 40%;
+  overflow: hidden;
+  background-image: url('./images/Alex-Honnold_SquareSpace.jpg');
+  object-fit: fill;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+header p {
+  position: absolute;  
+  text-transform: uppercase;
+  font-size: 50px;
+  color:#444454;
+  top: 40%;
+  left: 53%;
+}
+
+header img {
+  position: absolute; 
+  top: 40%;
+  left: 87%;
+  width: 70px;
+  height: 70px;
+}
+
+main {
+  display: flex;
+  padding: 20px 0px;
+  justify-content: space-between;
+  min-height: 60%;
+  width: 100%;
+  overflow: scroll;
+}
+
+article {
+  display: flex;
+  background-color: #fff;
+  width: 63%;
+  margin-left: 15px;
+  flex-direction: column;
+  align-content: stretch;
+  height: 100%;
+}
+
+aside {
+  display: flex;
+  width: 33%;
+  background-color: #fff;
+  margin-right: 15px;
+  flex-direction: column;
+  align-content: stretch;
+}
+
+
+.topic {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.vote-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.upVote,
+.downVote,
+.topicScore {
+  margin: 0 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.upVote,
+.downVote {
+  color: inherit;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: inherit;
+  background-color: inherit;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: 5px 5px;
+  object-fit: contain;
+}
+
+.upVote {
+  background-image: url('./images/upvote.png');
+}
+
+.downVote {
+  background-image: url('./images/downvote.png');
+}
+
+.topicScore {
+  text-align: center;
+  padding: 3px 0px 0px 2px;
+  font-size: 20px;
+  font-weight: 900;
+  font-family: 'Staatliches', cursive;
+  color: #888888;
+}
+
+.topicBody {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+}
+
+.topicBody .topicTitle {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.links a,
+.author {
+  text-decoration: none;
+  color: #888888;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.author {
+  padding-top: 10px;
+}
+
+.links a:hover {
+  text-decoration: underline;
+  color: #555555;
+  font-size: 12px;
+}
+
+div .button {
+  display: flex;
+  justify-content: center;
+}
+
+.submit {
+  background-color: rgb(104, 104, 231);
+  width: 100%;
+  padding: 10px;
+  text-decoration: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 10 auto;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
