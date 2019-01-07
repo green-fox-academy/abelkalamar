@@ -25,17 +25,32 @@ app.get('/', (req, res) => {
 });
 
 app.get('/game', (req, res) => {
-  const sql =`SELECT questions.id AS "quest_id", answers.id, is_correct, question, answer
+  const sql = `SELECT questions.id AS "quest_id", answers.id, is_correct, question, answer
   FROM questions
   JOIN answers ON answers.question_id = questions.id;`
-  conn.query(sql, (err, data) =>{
-    if(err) {
+  conn.query(sql, (err, data) => {
+    if (err) {
       console.log(err.message);
       res.status(500).json({
         error: 'Internal server error'
-      })
+      });
       return;
     }
     res.json(data);
-  })
-})
+  });
+});
+
+app.get('/questions', (req, res) => {
+  const sql = `SELECT * FROM questions;`
+  conn.query(sql, (err, data) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).json({
+        error: 'Internal server error'
+      });
+      return;
+    }
+    res.json(data);
+  });
+});
+
