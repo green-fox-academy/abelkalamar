@@ -50,7 +50,7 @@ app.get('/questions', (req, res) => {
       });
       return;
     }
-    res.json(data);
+    res.redirect('http://localhost:3000/questions');
   });
 });
 

@@ -1,6 +1,5 @@
 'use strict'
 
-
 const answersDiv = document.querySelector('.content');
 const scoreSpan = document.querySelector('.score');
 
@@ -21,10 +20,6 @@ sendHTTPRequest();
 const chooseId = (list) => {
   return Math.floor(Math.random() * (list.length / 4));
 };
-
-// answersDiv.addEventListener('click', (event) => {
-//   evaluate(event);
-// });
 
 const evaluate = (event) => {
   if (event.target.getAttribute('data') == 1) {
@@ -49,7 +44,6 @@ const pickQuestion = (data) => {
   const fourthAnswer = document.querySelector('.answer_four');
   const questions = data;
   const id = chooseId(questions) * 4;
-  console.log(questions);
   question.textContent = questions[id].question;
   firstAnswer.textContent = questions[id].answer;
   firstAnswer.setAttribute('data', questions[id].is_correct);
@@ -65,3 +59,16 @@ const pickQuestion = (data) => {
   fourthAnswer.setAttribute('style', "");
   answersDiv.addEventListener('click', evaluate);
 }
+
+const manageQuestions = document.querySelector('.manage');
+manageQuestions.addEventListener('click', (event) => {
+  event.preventDefault();
+  const manageXHR = new XMLHttpRequest();
+  manageXHR.open('GET', '/questions');
+  manageXHR.send();
+  manageXHR.onload = () => {
+    if (manageXHR.status === 200) {
+      console.log(JSON.parse(manageXHR.responseText));
+    }
+  }
+})
