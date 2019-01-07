@@ -1,11 +1,6 @@
 'use strict'
 
 
-const question = document.querySelector('.question');
-const firstAnswer = document.querySelector('.answer_one');
-const secondAnswer = document.querySelector('.answer_two');
-const thirdAnswer = document.querySelector('.answer_three');
-const fourthAnswer = document.querySelector('.answer_four');
 const answersDiv = document.querySelector('.content');
 const scoreSpan = document.querySelector('.score');
 
@@ -21,18 +16,7 @@ const sendHTTPRequest = (method, url, callback) => {
 }
 
 sendHTTPRequest('GET', '/game', (response) => {
-  const questions = response;
-  const id = chooseId(questions) * 4;
-  console.log(questions);
-  question.textContent = questions[id].question;
-  firstAnswer.textContent = questions[id].answer;
-  firstAnswer.setAttribute('data', questions[id].is_correct);
-  secondAnswer.textContent = questions[id + 1].answer;
-  secondAnswer.setAttribute('data', questions[id + 1].is_correct);
-  thirdAnswer.textContent = questions[id + 2].answer;
-  thirdAnswer.setAttribute('data', questions[id + 2].is_correct);
-  fourthAnswer.textContent = questions[id + 3].answer;
-  fourthAnswer.setAttribute('data', questions[id + 3].is_correct);
+  pickQuestion(response);
 });
 
 const chooseId = (list) => {
@@ -48,4 +32,33 @@ answersDiv.addEventListener('click', (event) => {
   } else if (event.target.getAttribute('data') == 0) {
     event.target.setAttribute('style', 'background: #EB6654');
   }
+  if (event.target.getAttribute('class') != "content") {
+    setTimeout(sendHTTPRequest('GET', '/game', (response) => {
+      pickQuestion(response);
+    }), 5000);
+  }
 });
+
+const pickQuestion = (data) => {
+  const question = document.querySelector('.question');
+  const firstAnswer = document.querySelector('.answer_one');
+  const secondAnswer = document.querySelector('.answer_two');
+  const thirdAnswer = document.querySelector('.answer_three');
+  const fourthAnswer = document.querySelector('.answer_four');
+  const questions = data;
+  const id = chooseId(questions) * 4;
+  console.log(questions);
+  question.textContent = questions[id].question;
+  firstAnswer.textContent = questions[id].answer;
+  firstAnswer.setAttribute('data', questions[id].is_correct);
+  firstAnswer.setAttribute('style', "");
+  secondAnswer.textContent = questions[id + 1].answer;
+  secondAnswer.setAttribute('data', questions[id + 1].is_correct);
+  secondAnswer.setAttribute('style', "");
+  thirdAnswer.textContent = questions[id + 2].answer;
+  thirdAnswer.setAttribute('data', questions[id + 2].is_correct);
+  thirdAnswer.setAttribute('style', "");
+  fourthAnswer.textContent = questions[id + 3].answer;
+  fourthAnswer.setAttribute('data', questions[id + 3].is_correct);
+  fourthAnswer.setAttribute('style', "");
+}
