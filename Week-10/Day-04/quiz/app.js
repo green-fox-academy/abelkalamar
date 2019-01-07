@@ -25,7 +25,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/game', (req, res) => {
-  conn.query('SELECT * FROM questions', (err, data) =>{
+  const sql =`SELECT questions.id AS "quest_id", answers.id, is_correct, question, answer
+  FROM questions
+  JOIN answers ON answers.question_id = questions.id;`
+  conn.query(sql, (err, data) =>{
     if(err) {
       console.log(err.message);
       res.status(500).json({
