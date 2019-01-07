@@ -48,30 +48,41 @@ button:active {
 .white {
   color: rgba(0, 0, 0, 0.5);
   background-color: #FAFBFD;
-  box-shadow: 0px 5px 0px 0px #999FB3;
+  box-shadow: 
+    0px 5px 0px 0px #999FB3;
 }
 
 .blue {
   background-color: #4564A4;
-  box-shadow: 0px 5px 0px 0px #26396D;
+  box-shadow: 
+    0px 5px 0px 0px #26396D,
+    0px -2px 0px 0px #5476BD;
 }
 
 .green {
   background-color: #1CB05C;
-  box-shadow: 0px 5px 0px 0px #166A40;
+  box-shadow: 
+    0px 5px 0px 0px #166A40,
+    0px -2px 0px 0px #51D188;
 }
 
 .red {
   background-color: #D64636;
-  box-shadow: 0px 5px 0px 0px #862B2F;
+  box-shadow: 
+    0px 5px 0px 0px #862B2F,
+    0px -2px 0px 0px rgb(228, 76, 84);
 }
 
 .light {
   background-color: #00AEED;
-  box-shadow: 0px 5px 0px 0px #0C6AA0;
+  box-shadow: 
+    0px 5px 0px 0px #0C6AA0,
+    0px -2px 0px 0px rgb(20, 152, 228);
 }
 
 .black {
   background-color: #27282A;
-  box-shadow: 0px 5px 0px 0px #1E1F2E;
+  box-shadow: 
+    0px 5px 0px 0px #1E1F2E,
+    0px -2px 0px 0px rgb(64, 66, 94);
 }
