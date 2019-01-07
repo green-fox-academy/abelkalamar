@@ -19,7 +19,7 @@ font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 600px;
+  width: 840px;
   height: 500px;
   border-radius: 10px;
   text-align: center;
@@ -36,6 +36,7 @@ font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: bold;
   margin: 70px 0px 40px 0px;
+  padding: 0px 30px;
 }
 
 button {
