@@ -4,26 +4,29 @@
 const answersDiv = document.querySelector('.content');
 const scoreSpan = document.querySelector('.score');
 
-const sendHTTPRequest = (method, url, callback) => {
+const sendHTTPRequest = () => {
   const xhr = new XMLHttpRequest();
-  xhr.open(method, url);
+  xhr.open('GET', '/game');
   xhr.send();
-  xhr.onload = () => {
+  xhr.onload = (response) => {
     if (xhr.status === 200) {
-      callback(JSON.parse(xhr.responseText));
+      response = JSON.parse(xhr.responseText);
+      pickQuestion(response);
     }
   }
 }
 
-sendHTTPRequest('GET', '/game', (response) => {
-  pickQuestion(response);
-});
+sendHTTPRequest();
 
 const chooseId = (list) => {
   return Math.floor(Math.random() * (list.length / 4));
 };
 
-answersDiv.addEventListener('click', (event) => {
+// answersDiv.addEventListener('click', (event) => {
+//   evaluate(event);
+// });
+
+const evaluate = (event) => {
   if (event.target.getAttribute('data') == 1) {
     event.target.setAttribute('style', 'background: #27AE60');
     let currentScore = +(scoreSpan.textContent);
@@ -33,11 +36,10 @@ answersDiv.addEventListener('click', (event) => {
     event.target.setAttribute('style', 'background: #EB6654');
   }
   if (event.target.getAttribute('class') != "content") {
-    setTimeout(sendHTTPRequest('GET', '/game', (response) => {
-      pickQuestion(response);
-    }), 5000);
+    setTimeout(sendHTTPRequest, 3000);
+    answersDiv.removeEventListener('click', evaluate);
   }
-});
+}
 
 const pickQuestion = (data) => {
   const question = document.querySelector('.question');
@@ -61,4 +63,5 @@ const pickQuestion = (data) => {
   fourthAnswer.textContent = questions[id + 3].answer;
   fourthAnswer.setAttribute('data', questions[id + 3].is_correct);
   fourthAnswer.setAttribute('style', "");
+  answersDiv.addEventListener('click', evaluate);
 }
