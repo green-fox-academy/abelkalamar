@@ -31,10 +31,59 @@ button {
   margin: 10px;
 }
 
-div[data-action="delete"]:hover {
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+button[data-action="delete"]:hover {
   color: red;
 }
 
-div[data-action="confirm"]:hover {
-  color: rgb(50, 206, 50);
+button[data-action="delete"]:hover span{
+  color: white;
+  background-color: red;
+  text-align: center;
+  font-size: 15px;
+  padding: 11px 50px; 
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}
+
+button[data-action="confirm"]:hover {
+  color: #38BA7D;
+}
+
+button[data-action="confirm"]:hover span{
+  color: white;
+  background-color: #38BA7D;
+  text-align: center;
+  font-size: 15px;
+  padding: 11px 50px; 
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}
+
+button span {
+  display: none;
+}
+
+button[data-action="confirm"]:hover span:before,
+button[data-action="delete"]:hover span:before {
+  width: 0; 
+  height: 0; 
+  position: absolute;
+  content: "";
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #1C242B;
 }
