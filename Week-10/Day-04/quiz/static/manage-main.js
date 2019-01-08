@@ -16,7 +16,7 @@ const sendHTTPRequest = (method, url, callback) => {
 const parentDiv = document.querySelector('.manage-questions');
 
 const createLayout = (data) => {
-  clearer(parentDiv);
+  parentDiv.innerHTML = "";
   data.forEach(row => {
     const div = document.createElement('div');
     div.setAttribute('class', `question`);
@@ -31,12 +31,6 @@ const createLayout = (data) => {
     div.appendChild(link);
     parentDiv.appendChild(div);
   });
-}
-
-const clearer = (div) => {
-  while (div.firstChild) {
-    div.removeChild(div.firstChild);
-  }
 }
 
 sendHTTPRequest('GET', '/questions', createLayout);
