@@ -58,4 +58,18 @@ app.get('/questions', (req, res) => {
   });
 });
 
+app.delete('/questions/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = `DELETE FROM questions WHERE id = '${id}';`
+  conn.query(sql, (err, data) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).json({
+        error: 'Internal server error'
+      });
+      return;
+    }
+    res.json(data);
+  });
+});
 

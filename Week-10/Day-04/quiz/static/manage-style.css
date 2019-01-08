@@ -55,7 +55,7 @@
     cursor: pointer;
   }
 
-  .back {
+  #back {
     text-decoration: none;
     font-size: 14px;
     color: #3498DB;
