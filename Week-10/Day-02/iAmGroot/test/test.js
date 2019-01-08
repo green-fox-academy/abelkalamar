@@ -27,6 +27,7 @@ test('/groot endpoint without query', (t)=>{
       if(err) throw (err);
       else {
         t.same(res.body, {error: 'I am Groot!'});
+        t.end();
       }
-    })
-})
+    });
+});
