@@ -73,3 +73,41 @@ app.delete('/questions/:id', (req, res) => {
   });
 });
 
+app.get('/json', (req, res) => {
+  const sql = `SELECT * FROM questions;`
+  conn.query(sql, (err, data) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).json({
+        error: 'Internal server error'
+      });
+      return;
+    }
+    const num = Math.floor(Math.random() * data.length);
+    const question = {
+      'id': data[num].id,
+      'question': data[num].question
+    };
+    conn.query('SELECT * FROM answers', (err, answers) => {
+      if (err) {
+        console.log(err.message);
+        res.status(500).json({
+          error: 'Internal server error'
+        });
+        return;
+      }
+      let answerList = [];
+      answers.forEach(e =>{
+        if(e.question_id === question.id) {
+          answerList.push(e);
+        }
+      });
+      res.json({
+        id: question.id,
+        question: question.question,
+        answers: answerList
+      });
+    });
+  });
+});
+
