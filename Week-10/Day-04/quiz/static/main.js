@@ -30,8 +30,9 @@ const evaluate = (event) => {
   } else if (event.target.getAttribute('data') == 0) {
     event.target.setAttribute('style', 'background: #EB6654');
   }
-  if (event.target.getAttribute('class') != "content") {
-    setTimeout(sendHTTPRequest, 3000);
+  if (event.target.getAttribute('class') != "content" &&
+    event.target.getAttribute('class') != "question") {
+    setTimeout(sendHTTPRequest, 1000);
     answersDiv.removeEventListener('click', evaluate);
   }
 }
@@ -64,11 +65,11 @@ const manageQuestions = document.querySelector('.manage');
 manageQuestions.addEventListener('click', (event) => {
   event.preventDefault();
   const manageXHR = new XMLHttpRequest();
-  manageXHR.open('GET', '/questions');
+  manageXHR.open('GET', '/manage');
   manageXHR.send();
   manageXHR.onload = () => {
     if (manageXHR.status === 200) {
-      console.log(JSON.parse(manageXHR.responseText));
+      window.location = '/manage';
     }
   }
-})
+});

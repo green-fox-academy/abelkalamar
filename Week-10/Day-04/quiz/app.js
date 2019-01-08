@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
 
+app.get('/manage', (req, res) => {
+  res.sendFile(path.join(__dirname, '/manage-app.html'));
+});
+
 app.get('/game', (req, res) => {
   const sql = `SELECT questions.id AS "quest_id", answers.id, is_correct, question, answer
   FROM questions
@@ -50,7 +54,7 @@ app.get('/questions', (req, res) => {
       });
       return;
     }
-    res.redirect('http://localhost:3000/questions');
+    res.json(data);
   });
 });
 

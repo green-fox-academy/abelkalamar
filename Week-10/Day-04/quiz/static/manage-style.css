@@ -40,6 +40,8 @@
     font-size: 16px;
     font-weight: bolder;
     border-bottom: 1px solid #b3afaf;
+    text-align: left;
+    align-items: center;
   }
 
   div.question:nth-last-of-type(1) {
@@ -50,6 +52,7 @@
   div.question a {
     color: rgb(231, 78, 98);
     text-decoration: none;
+    cursor: pointer;
   }
 
   .back {
