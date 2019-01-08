@@ -14,10 +14,26 @@ test('/yondu endpoint with queries', (t) => {
         time: 25,
         speed: 400 / 25
       }
-      if(err) throw (err);
+      if (err) throw (err);
       else {
         t.same(res.body, expectedResponse, 'with right queries');
         t.end();
       }
-    })
+    });
+});
+
+test('/yondu endpoint without one querie', (t) => {
+  request(app)
+    .get('/yondu/?distance=400')
+    .expect(403)
+    .end((err, res) => {
+      const expectedResponse = {
+        error: 'some query is missing'
+      }
+      if (err) throw (err);
+      else {
+        t.same(res.body, expectedResponse, 'with missing querie');
+        t.end();
+      }
+    });
 });
