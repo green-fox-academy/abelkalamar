@@ -16,6 +16,7 @@ const sendHTTPRequest = (method, url, callback) => {
 const parentDiv = document.querySelector('.manage-questions');
 
 const createLayout = (data) => {
+  clearer(parentDiv);
   data.forEach(row => {
     const div = document.createElement('div');
     div.setAttribute('class', `question`);
@@ -32,6 +33,12 @@ const createLayout = (data) => {
   });
 }
 
+const clearer = (div) => {
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
+}
+
 sendHTTPRequest('GET', '/questions', createLayout);
 
 parentDiv.onclick = (event) => {
@@ -39,6 +46,7 @@ parentDiv.onclick = (event) => {
     sendHTTPRequest('DELETE', `/questions/${event.target.getAttribute('data')}`, (response) => {
       console.log(response);
     });
+    sendHTTPRequest('GET', '/questions', createLayout);
   }
 }
 
