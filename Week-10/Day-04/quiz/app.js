@@ -28,22 +28,6 @@ app.get('/manage', (req, res) => {
   res.sendFile(path.join(__dirname, '/manage-app.html'));
 });
 
-app.get('/game', (req, res) => {
-  const sql = `SELECT questions.id AS "quest_id", answers.id, is_correct, question, answer
-  FROM questions
-  JOIN answers ON answers.question_id = questions.id;`
-  conn.query(sql, (err, data) => {
-    if (err) {
-      console.log(err.message);
-      res.status(500).json({
-        error: 'Internal server error'
-      });
-      return;
-    }
-    res.json(data);
-  });
-});
-
 app.get('/questions', (req, res) => {
   const sql = `SELECT * FROM questions;`
   conn.query(sql, (err, data) => {
@@ -73,7 +57,7 @@ app.delete('/questions/:id', (req, res) => {
   });
 });
 
-app.get('/json', (req, res) => {
+app.get('/game', (req, res) => {
   const sql = `SELECT * FROM questions;`
   conn.query(sql, (err, data) => {
     if (err) {
@@ -97,8 +81,8 @@ app.get('/json', (req, res) => {
         return;
       }
       let answerList = [];
-      answers.forEach(e =>{
-        if(e.question_id === question.id) {
+      answers.forEach(e => {
+        if (e.question_id === question.id) {
           answerList.push(e);
         }
       });
@@ -111,3 +95,18 @@ app.get('/json', (req, res) => {
   });
 });
 
+app.post('/questions', (req, res) => {
+  const { question, answers } = req.body;
+  const sql = 'INSERT INTO answers VALUES(?, ?, ?, ?)';
+  conn.query('INSERT INTO questions VALUES(?, ?)', [0, question], (err, data) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).json({
+        error: 'Internal server error'
+      });
+      return;
+    }
+    console.log(req.body);
+    conn.query(sql, [0, answers.question_id, answers.aswer] )
+  });
+})

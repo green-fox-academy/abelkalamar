@@ -44,3 +44,27 @@ parentDiv.onclick = (event) => {
   }
 }
 
+const form = document.querySelector('form');
+form.onsubmit = (event) => {
+  event.preventDefault();
+  const { newQuestion, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer } = form.elements;
+  const postXHR = new XMLHttpRequest();
+  postXHR.open('POST', '/questions');
+  postXHR.setRequestHeader('Content-Type', 'application/json');
+  postXHR.send(JSON.stringify({
+    question: newQuestion.value,
+    answers: {
+      firstAnswer: firstAnswer.value,
+      secondAnswer: secondAnswer.value,
+      thirdAnswer: thirdAnswer.value,
+      fourthAnswer: fourthAnswer.value
+    }
+  }));
+  postXHR.onload = () => {
+    if (postXHR.status === 200) {
+      constole.log(JSON.parse(xhr.responseText));
+    }
+  }
+}
+
+

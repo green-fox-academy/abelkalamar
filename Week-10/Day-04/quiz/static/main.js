@@ -10,16 +10,12 @@ const sendHTTPRequest = () => {
   xhr.onload = (response) => {
     if (xhr.status === 200) {
       response = JSON.parse(xhr.responseText);
-      pickQuestion(response);
+      showQuestion(response);
     }
   }
 }
 
 sendHTTPRequest();
-
-const chooseId = (list) => {
-  return Math.floor(Math.random() * (list.length / 4));
-};
 
 const evaluate = (event) => {
   if (event.target.getAttribute('data') == 1) {
@@ -37,26 +33,24 @@ const evaluate = (event) => {
   }
 }
 
-const pickQuestion = (data) => {
+const showQuestion = (data) => {
   const question = document.querySelector('.question');
   const firstAnswer = document.querySelector('.answer_one');
   const secondAnswer = document.querySelector('.answer_two');
   const thirdAnswer = document.querySelector('.answer_three');
   const fourthAnswer = document.querySelector('.answer_four');
-  const questions = data;
-  const id = chooseId(questions) * 4;
-  question.textContent = questions[id].question;
-  firstAnswer.textContent = questions[id].answer;
-  firstAnswer.setAttribute('data', questions[id].is_correct);
+  question.textContent = data.question;
+  firstAnswer.textContent = data.answers[0].answer;
+  firstAnswer.setAttribute('data', data.answers[0].is_correct);
   firstAnswer.setAttribute('style', "");
-  secondAnswer.textContent = questions[id + 1].answer;
-  secondAnswer.setAttribute('data', questions[id + 1].is_correct);
+  secondAnswer.textContent = data.answers[1].answer;
+  secondAnswer.setAttribute('data', data.answers[1].is_correct);
   secondAnswer.setAttribute('style', "");
-  thirdAnswer.textContent = questions[id + 2].answer;
-  thirdAnswer.setAttribute('data', questions[id + 2].is_correct);
+  thirdAnswer.textContent = data.answers[2].answer;
+  thirdAnswer.setAttribute('data', data.answers[2].is_correct);
   thirdAnswer.setAttribute('style', "");
-  fourthAnswer.textContent = questions[id + 3].answer;
-  fourthAnswer.setAttribute('data', questions[id + 3].is_correct);
+  fourthAnswer.textContent = data.answers[3].answer;
+  fourthAnswer.setAttribute('data', data.answers[3].is_correct);
   fourthAnswer.setAttribute('style', "");
   answersDiv.addEventListener('click', evaluate);
 }
@@ -73,3 +67,4 @@ manageQuestions.addEventListener('click', (event) => {
     }
   }
 });
+
