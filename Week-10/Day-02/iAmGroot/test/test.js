@@ -18,3 +18,15 @@ test('/groot endpoint with query', (t) => {
       }
     });
 });
+
+test('/groot endpoint without query', (t)=>{
+  request(app)
+    .get('/groot')
+    .expect(202)
+    .end((err, res) =>{
+      if(err) throw (err);
+      else {
+        t.same(res.body, {error: 'I am Groot!'});
+      }
+    })
+})
