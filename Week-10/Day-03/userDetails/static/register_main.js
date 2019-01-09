@@ -12,11 +12,12 @@ form.onsubmit = () => {
     id: 0,
     username: username.value,
     password: password.value,
-    age: age.value,  
+    age: age.value,
     gender: gender.value
   }));
   xhr.onload = () => {
     const data = JSON.parse(xhr.responseText);
     alert(data.message);
+    window.location = '/';
   }
 }
