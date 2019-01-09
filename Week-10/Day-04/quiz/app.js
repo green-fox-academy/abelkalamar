@@ -106,7 +106,24 @@ app.post('/questions', (req, res) => {
       });
       return;
     }
-    console.log(data.insertId);
-    // conn.query(sql, [0, answers.question_id, answers.aswer])
+    let numbify = (isChecked) => {
+      if (isChecked) return 1;
+      else return 0;
+    }
+    answers.forEach(answer => {
+      conn.query(sql, [0, data.insertId, answer.answer, numbify(answer.isChecked)], (err, elem) => {
+        if (err) {
+          console.log(err.message);
+          res.status(500).json({
+            error: 'Internal server error'
+          });
+          return;
+        }
+        
+      });
+    });
+    res.json({
+      message: 'Successfuly added to the database!'
+    });
   });
 })

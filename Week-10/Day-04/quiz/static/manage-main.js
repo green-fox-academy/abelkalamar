@@ -49,21 +49,35 @@ form.onsubmit = (event) => {
   event.preventDefault();
   const { newQuestion, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer } = form.elements;
   const postXHR = new XMLHttpRequest();
+  const firstRadio = document.querySelector('.first');
+  const secondRadio = document.querySelector('.second');
+  const thirdRadio = document.querySelector('.third');
+  const fourthRadio = document.querySelector('.fourth');
   postXHR.open('POST', '/questions');
   postXHR.setRequestHeader('Content-Type', 'application/json');
   postXHR.send(JSON.stringify({
     question: newQuestion.value,
-    answers: {
-      firstAnswer: firstAnswer.value,
-      secondAnswer: secondAnswer.value,
-      thirdAnswer: thirdAnswer.value,
-      fourthAnswer: fourthAnswer.value
-    }
+    answers: [{
+      answer: firstAnswer.value,
+      isChecked: firstRadio.checked
+    },
+    {
+      answer: secondAnswer.value,
+      isChecked: secondRadio.checked
+    },
+    {
+      answer: thirdAnswer.value,
+      isChecked: thirdRadio.checked
+    },
+    {
+      answer: fourthAnswer.value,
+      isChecked: fourthRadio.checked
+    }]
   }));
   postXHR.onload = () => {
-    if (postXHR.status === 200) {
-      constole.log(JSON.parse(xhr.responseText));
-    }
+    // if (postXHR.status === 200) {
+    //   console.log(JSON.parse(postXHR.responseText));
+    // }
   }
 }
 
