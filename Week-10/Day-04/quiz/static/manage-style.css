@@ -123,3 +123,9 @@ input[type="radio"] {
   transform: scale(1.5);
   cursor: pointer;
 }
+
+::placeholder {
+  font-size: 14px;
+  font-style: italic;
+  color: magenta;
+}

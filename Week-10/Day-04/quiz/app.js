@@ -106,7 +106,7 @@ app.post('/questions', (req, res) => {
       });
       return;
     }
-    console.log(req.body);
-    conn.query(sql, [0, answers.question_id, answers.aswer] )
+    console.log(data.insertId);
+    // conn.query(sql, [0, answers.question_id, answers.aswer])
   });
 })
