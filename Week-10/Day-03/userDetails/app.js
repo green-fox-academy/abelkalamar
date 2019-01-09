@@ -16,10 +16,15 @@ const conn = mysql.createConnection({
 
 app.use(express.json());
 app.use('/static', express.static('static'));
+app.use('/details/static', express.static('static'));
 
 app.listen(PORT, () => {
   console.log(`Application listening on PORT:${PORT}`);
-})
+});
+
+app.get('/', (req, res) => {
+  res.redirect('/login');
+});
 
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname + '/login.html'));
@@ -41,7 +46,8 @@ app.get('/user', (req, res) => {
         if (userFromDB.password === password) {
           res.status(200).json({
             message: 'Login successful',
-            path: '/details'
+            path: `/details`,
+            id: userFromDB.id
           });
         } else {
           res.status(201).json({
@@ -55,15 +61,20 @@ app.get('/user', (req, res) => {
         });
       }
     });
-  } else if (!username || !password) {
-    res.status(403).json({
-      message: 'Missing query'
+    return;
+  } else if (!username || username === "" || username === " ") {
+    res.status(203).json({
+      message: 'Missing username'
+    });
+    // return;
+  } else if (!password || password === "" || password === " ") {
+    res.status(204).json({
+      message: 'Missing password'
     });
   }
 });
 
-
-app.get('/details', (req, res) => {
+app.get('/details/:id', (req, res) => {
   res.sendFile(path.join(__dirname + '/details.html'));
 });
 
@@ -71,8 +82,9 @@ app.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname + '/register.html'));
 });
 
-app.get('/', (req, res) => {
-  conn.query('SELECT * FROM userContent', (err, data) => {
+app.get('/user/details/:id', (req, res) => {
+  const { id } = req.params;
+  conn.query(`SELECT * FROM userContent WHERE id = '${id}';`, (err, data) => {
     if (err) {
       res.status(500).json({
         error: 'Internal server error'
@@ -80,5 +92,5 @@ app.get('/', (req, res) => {
       return;
     }
     res.json(data);
-  })
-})
+  });
+});
