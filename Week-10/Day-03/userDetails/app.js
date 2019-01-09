@@ -94,3 +94,18 @@ app.get('/user/details/:id', (req, res) => {
     res.json(data);
   });
 });
+
+app.post('/register/user', (req, res) =>{
+  const { id, username, password, age, gender } = req.body;
+  conn.query('INSERT INTO userContent VALUES (?, ?, ?, ?, ?)', [id, username, password, age, gender], (err, data) => {
+    if (err) {
+      res.status(500).json({
+        error: 'Internal server error'
+      });
+      return;
+    }
+    res.json({
+      message: 'Successfully added to the database!'
+    });
+  });
+});

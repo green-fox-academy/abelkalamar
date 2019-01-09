@@ -28,3 +28,9 @@ const showDetails = (data) => {
   ul.appendChild(genderLi);
   parentDiv.appendChild(ul);
 }
+
+const backToLogin = document.querySelector('.backToLogin');
+backToLogin.onclick = (event) => {
+  event.preventDefault();
+  window.location = '/login';
+}
