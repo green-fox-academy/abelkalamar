@@ -67,5 +67,3 @@ manageQuestions.addEventListener('click', (event) => {
     }
   }
 });
-
-

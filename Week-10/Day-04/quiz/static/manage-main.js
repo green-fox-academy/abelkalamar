@@ -12,7 +12,6 @@ const sendHTTPRequest = (method, url, callback) => {
   }
 }
 
-
 const parentDiv = document.querySelector('.manage-questions');
 
 const createLayout = (data) => {
@@ -75,9 +74,9 @@ form.onsubmit = (event) => {
     }]
   }));
   postXHR.onload = () => {
-    // if (postXHR.status === 200) {
-    //   console.log(JSON.parse(postXHR.responseText));
-    // }
+    if (postXHR.status === 200) {
+      window.location = '/manage';
+    }
   }
 }
 
@@ -92,5 +91,3 @@ backToTheGame.onclick = (event) => {
   }
   newXHR.send();
 }
-
-
