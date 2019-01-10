@@ -54,16 +54,3 @@ const showQuestion = (data) => {
   fourthAnswer.setAttribute('style', "");
   answersDiv.addEventListener('click', evaluate);
 }
-
-const manageQuestions = document.querySelector('.manage');
-manageQuestions.addEventListener('click', (event) => {
-  event.preventDefault();
-  const manageXHR = new XMLHttpRequest();
-  manageXHR.open('GET', '/manage');
-  manageXHR.send();
-  manageXHR.onload = () => {
-    if (manageXHR.status === 200) {
-      window.location = '/manage';
-    }
-  }
-});

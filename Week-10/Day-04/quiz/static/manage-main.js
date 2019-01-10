@@ -79,15 +79,3 @@ form.onsubmit = (event) => {
     }
   }
 }
-
-const backToTheGame = document.querySelector('#back');
-backToTheGame.onclick = (event) => {
-  const newXHR = new XMLHttpRequest();
-  newXHR.open('GET', '/');
-  newXHR.onload = () => {
-    if (newXHR.status === 200) {
-      window.location = '/';
-    }
-  }
-  newXHR.send();
-}
