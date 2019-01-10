@@ -79,7 +79,7 @@ app.get('/a/:alias', (req, res) => {
     conn.query(sqlCommand, (error) => {
       if (error) {
         res.status(500).json({
-          message: 'Internal server error2'
+          message: 'Internal server error'
         });
         return;
       }
@@ -92,7 +92,7 @@ app.get('/api/links', (req, res) => {
   conn.query('SELECT id, url, alias, hitcount FROM urls', (err, data) => {
     if (error) {
       res.status(500).json({
-        message: 'Internal server error2'
+        message: 'Internal server error'
       });
       return;
     }
@@ -100,5 +100,44 @@ app.get('/api/links', (req, res) => {
   });
 });
 
+app.delete('/api/links/', (req, res) => {
+  const { id } = req.query;
+  const { secretCode } = req.body;
+  conn.query(`SELECT secretcode FROM urls WHERE id = '${id}';`, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        message: 'Internal server error'
+      });
+      return;
+    }
+    res.json(result);
+    if (result) {
+      if (result[0].secretcode == secretCode) {
+        conn.query(`DELETE FROM urls WHERE secretcode = '${secretCode}';`), (err) => {
+          if (err) {
+            res.status(500).json({
+              message: 'Internal server error'
+            });
+            return;
+          }
+          res.json({
+            message: 'Successfully deleted!'
+          });
+        }
+      } else {
+        res.status(403).json({
+          message: 'wrong code',
+          code: secretCode,
+          needed: result[0].secretcode
+        });
+      }
+    } else {
+      res.status(404).json({
+        message: 'wrong id'
+      });
+      return;
+    }
+  });
+});
 
 module.exports = app;
