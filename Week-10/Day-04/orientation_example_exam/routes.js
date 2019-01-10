@@ -54,17 +54,51 @@ app.post('/api/links', (req, res) => {
           return;
         }
         res.json({
+          id: result.insertId,
           url: url,
           alias: alias,
           hitCount: 0,
-          secretCode: newSecretCode,
-          id: result.insertId
+          secretCode: newSecretCode
         });
       });
     }
   });
-})
+});
 
+app.get('/a/:alias', (req, res) => {
+  const { alias } = req.params;
+  conn.query(`SELECT * FROM urls WHERE alias = '${alias}'`, (err, data) => {
+    if (err) {
+      res.status(500).json({
+        message: 'Internal server error'
+      });
+      return;
+    }
+    const content = data[0];
+    const sqlCommand = `UPDATE urls SET hitcount = hitcount + 1 WHERE alias = '${content.alias}';`
+    conn.query(sqlCommand, (error) => {
+      if (error) {
+        res.status(500).json({
+          message: 'Internal server error2'
+        });
+        return;
+      }
+      res.redirect(content.url);
+    });
+  });
+});
+
+app.get('/api/links', (req, res) => {
+  conn.query('SELECT id, url, alias, hitcount FROM urls', (err, data) => {
+    if (error) {
+      res.status(500).json({
+        message: 'Internal server error2'
+      });
+      return;
+    }
+    res.json(data);
+  });
+});
 
 
 module.exports = app;
