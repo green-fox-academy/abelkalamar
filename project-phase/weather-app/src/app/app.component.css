@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Lato', sans-serif;
+  }
+  
+  a {
+    text-decoration: none;
+    text-transform: none;
+    color: #415162;
+  }
+  
+  h1 {
+    font-size: 40px;
+  }
+  
+  .container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .content {
+    width: 800px;
+    background-color: #ECF0F1;
+  }
+  
+  
