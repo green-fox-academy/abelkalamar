@@ -1,29 +1,29 @@
-const fs = require('fs');
-import { OnInit } from '@angular/core';
+// const fs = require('fs');
+// import { OnInit } from '@angular/core';
 
-export class CountryConvert {
+// export class CountryConvert {
 
-  cities: { name: string, code: string }[] = [];
+//   cities: { name: string, code: string }[] = [];
 
-  static readFile(fileName): string {
-    try {
-      return fs.readFileSync(fileName, 'utf-8');
-    } catch (e) {
-      console.log('Cannot read file!');
-      return null;
-    }
-  }
+//   static readFile(fileName): string {
+//     try {
+//       return fs.readFileSync(fileName, 'utf-8');
+//     } catch (e) {
+//       console.log('Cannot read file!');
+//       return null;
+//     }
+//   }
 
-  // fillCities()
+//   // fillCities()
 
-}
+// }
 
-const cities = CountryConvert.readFile('../assets/countries.csv').split('\r\n');
-const splittedCities = cities.map(e => e.split(','));
+// const cities = CountryConvert.readFile('../assets/countries.csv').split('\r\n');
+// const splittedCities = cities.map(e => e.split(','));
 
-const cityConverter: { name: string, code: string }[] = [];
+// const cityConverter: { name: string, code: string }[] = [];
 
-const convertCities = () => {
+// const convertCities = () => {
 
-}
-console.log(splittedCities);
+// }
+// console.log(splittedCities);

@@ -3,7 +3,6 @@ import { Weather } from '../weather';
 import { ForecastService } from '../forecast.service';
 import { environment } from '../../environments/environment';
 
-
 @Component({
   selector: 'app-city-tabs',
   templateUrl: './city-tabs.component.html',
@@ -11,36 +10,38 @@ import { environment } from '../../environments/environment';
 })
 export class CityTabsComponent implements OnInit {
 
-  forecasts: Weather[];
-
-  weather: Weather = {
-    city: 'Budapest',
-    location: 'Hungary',
-    weather: [
-      { temp: 12, icon: 'partly_cloudy', message: 'It\'s cloudy.' },
-      { temp: 16, icon: 'rainy', message: 'Sooo... Wet.' },
-      { temp: 18, icon: 'partly_cloudy', message: 'Here comes the sun.' },
-      { temp: 16, icon: 'partly_cloudy', message: 'Not too sunny.' },
-      { temp: 19, icon: 'partly_cloudy', message: 'So far so good.' },
-    ],
-  }
+  forecasts: Weather[] = [];
+  searchUrl: string = '';
+  defaultCity: 'Budapest';
 
   constructor(private forecastService: ForecastService) { }
 
   ngOnInit() {
-    this.getForecasts();
+    this.getForecasts(`${environment.apiUrl}find?q=Budapest&units=metric&appid=87a18d3268182e405a21962bd663e357`);
   }
 
-  getForecasts(): void {
-    this.forecastService.getForecast()
+  searchForecast(city) {
+    this.searchUrl = `${environment.apiUrl}find?q=${city}&units=metric&appid=87a18d3268182e405a21962bd663e357`;
+    this.getForecasts(this.searchUrl);
+  }
+
+  getForecasts(url): void {
+    this.forecasts = [];
+    this.forecastService.getForecast(url)
       .subscribe(content => {
-        console.log(content.list[0]);
-        // content.forEach(e => {
-        //   const weather = {
-        //     city: e.name,
-        //     location: 
-        //   }
-        // });
+        const data = content.list;
+        console.log(data);
+        data.forEach(result => {
+          const newForecast: Weather = {
+            city: result.name,
+            location: result.sys.country,
+            weather: []
+          }
+          result.weather.forEach(e => {
+            newForecast.weather.push({ temp: result.main.temp, icon: e.main, message: e.description });
+          });
+          this.forecasts.push(newForecast);
+        });
       });
   }
 }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api.openweathermap.org/data/2.5/find?q=London&units=imperial&appid=87a18d3268182e405a21962bd663e357'
+  apiUrl: `https://api.openweathermap.org/data/2.5/`
 };
 
 /*

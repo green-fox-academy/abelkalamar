@@ -1,19 +1,20 @@
 <div class="input">
-  <input name="city" class="city" placeholder="Type in a city">
-  <button class="search">Search</button>
+  <input #citySearch class="inputCity" placeholder="Type in a city">
+  <button class="search" 
+  (click)="searchForecast(citySearch.value)">Search</button>
 </div>
-<a *ngFor="let weather of forecasts">
+<a *ngFor="let forecast of forecasts">
   <div class="weather">
     <div class="tab">
       <div class="cityName">
-        <h1 class="city">{{weather.city}}</h1>
-        <h3 class="location">{{weather.location}}</h3>
+        <h1 class="city">{{forecast.city}}</h1>
+        <h3 class="location">{{forecast.location}}</h3>
       </div>
       <div class="degrees">
-        {{weather.weather[0].temp}} &deg;C
+        {{forecast.weather[0].temp}} &deg;C
       </div>
       <div class="img">
-        <img src="../../assets/sunny.png">
+        <img src='../../assets/sunny.png'>
       </div>
     </div>
   </div>

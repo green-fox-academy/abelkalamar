@@ -4,18 +4,19 @@ import { FORECASTS } from './mock-weather';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+import { CityTabsComponent } from './city-tabs/city-tabs.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ForecastService {
 
-  url = environment.apiUrl;
   city: string;
 
   constructor(private http: HttpClient) { }
 
-  getForecast(): Observable<any> {
-    return this.http.get<Weather[]>(this.url);
+  getForecast(url): Observable<Weather[]> {
+    return this.http.get<Weather[]>(url);
   }
 }
