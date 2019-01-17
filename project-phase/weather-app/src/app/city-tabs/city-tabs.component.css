@@ -2,21 +2,28 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  }
+}
   
-  body {
-    font-family: 'Lato', sans-serif;
-  }
+body {
+  font-family: 'Lato', sans-serif;
+}
   
-  a {
-    text-decoration: none;
-    text-transform: none;
-    color: #415162;
-    cursor: pointer;
-  }
+a {
+  text-decoration: none;
+  text-transform: none;
+  color: #415162;
+  cursor: pointer;
+}
   
   h1 {
     font-size: 40px;
+    font-family: 'Lato', sans-serif;
+    color: #415162;
+  }
+
+  .title {
+    text-align: center;
+    margin-top: 30px;
   }
 
   h3 {
@@ -24,7 +31,8 @@
   }
 
 .weather {
-  margin: 30px;
+  width: 800px;
+  margin: 30px auto;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0.5px 0.5px 5px 0.1px black;
@@ -68,6 +76,7 @@
 .input {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .search {
@@ -87,9 +96,13 @@
   background-color: rgb(248, 242, 233);
 }
 
-.inputCity {
+.inputCity, .dateSelector {
   padding: 5px;
   font-size: 16px;
-  margin: 30px;
   letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.inputCity {
+  margin-right: 20px;  
 }

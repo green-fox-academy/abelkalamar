@@ -1,0 +1,10 @@
+<h1 class="title">{{forecasts.city}} - {{now | date}}</h1>
+<div class="allTabs">
+  <div *ngFor="let weather of forecasts.weather" class="tab">
+    <p class="date">{{weather.time}}</p>
+    <img src="../../assets/{{weather.icon}}.png">
+    <div class="temp">{{weather.temp}} &deg;C</div>
+    <p class="message">{{weather.message}}</p>
+  </div>
+</div>
+<button class="back" (click)="previousPage()">Go back</button>

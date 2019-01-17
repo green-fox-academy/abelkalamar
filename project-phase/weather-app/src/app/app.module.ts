@@ -5,11 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CityTabsComponent } from './city-tabs/city-tabs.component';
+import { ForecastDetailedComponent } from './forecast-detailed/forecast-detailed.component';
+import { ForecastCityViewComponent } from './forecast-city-view/forecast-city-view.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CityTabsComponent
+    CityTabsComponent,
+    ForecastDetailedComponent,
+    ForecastCityViewComponent
   ],
   imports: [
     BrowserModule,

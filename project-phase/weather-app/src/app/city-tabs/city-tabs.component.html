@@ -1,9 +1,16 @@
+<h1 class="title">TODAY'S WEATHER</h1>
 <div class="input">
   <input #citySearch class="inputCity" placeholder="Type in a city">
-  <button class="search" 
-  (click)="searchForecast(citySearch.value)">Search</button>
+  <select #selectDate class="dateSelector" (click)="getDate(selectDate.value)">
+    <option>{{today | date }}</option>
+    <option>{{tomorrow | date}}</option>
+    <option></option>
+    <option></option>
+    <option></option>
+  </select>
+  <button class="search" (click)="searchForecast(citySearch.value)">Search</button>
 </div>
-<a *ngFor="let forecast of forecasts">
+<a *ngFor="let forecast of forecasts" routerLink="/detail/{{forecast.cityId}}">
   <div class="weather">
     <div class="tab">
       <div class="cityName">
@@ -11,10 +18,10 @@
         <h3 class="location">{{forecast.location}}</h3>
       </div>
       <div class="degrees">
-        {{forecast.weather[0].temp}} &deg;C
+        {{forecast.weather.temp}} &deg;C
       </div>
       <div class="img">
-        <img src='../../assets/sunny.png'>
+        <img src='../../assets/{{forecast.weather.icon}}.png'>
       </div>
     </div>
   </div>
