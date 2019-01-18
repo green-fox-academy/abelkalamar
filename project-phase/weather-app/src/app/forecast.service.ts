@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Weather } from './weather';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,7 @@ export class ForecastService {
 
   constructor(private http: HttpClient) { }
 
-  getForecast(url): Observable<Weather[]> {
-    return this.http.get<Weather[]>(url);
+  getForecast(url): Observable<any> {
+    return this.http.get<any>(url);
   }
 }

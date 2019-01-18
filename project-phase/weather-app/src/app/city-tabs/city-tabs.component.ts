@@ -13,8 +13,6 @@ export class CityTabsComponent implements OnInit {
   forecasts: Weather[] = [];
   searchUrl: string = '';
   defaultCity: 'Budapest';
-  today: Date = new Date();
-  tomorrow =  new Date(this.today.setDate(this.today.getDate() + 1));
 
   constructor(private forecastService: ForecastService) { }
   
@@ -25,10 +23,6 @@ export class CityTabsComponent implements OnInit {
   searchForecast(city) {
     this.searchUrl = `${environment.apiUrl}find?q=${city}&units=metric&appid=87a18d3268182e405a21962bd663e357`;
     this.getForecasts(this.searchUrl);
-  }
-
-  getDate(date) {
-    console.log(date);
   }
 
   chooseImg(resImg) {

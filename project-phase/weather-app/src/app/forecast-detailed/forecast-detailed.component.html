@@ -1,10 +1,20 @@
-<h1 class="title">{{forecasts.city}} - {{now | date}}</h1>
-<div class="allTabs">
-  <div *ngFor="let weather of forecasts.weather" class="tab">
-    <p class="date">{{weather.time}}</p>
-    <img src="../../assets/{{weather.icon}}.png">
-    <div class="temp">{{weather.temp}} &deg;C</div>
-    <p class="message">{{weather.message}}</p>
+<div class="view">
+  <h1 class="title">{{forecasts.city}} - Jan {{this.searchDate}} </h1>
+  <div class="allTabs">
+    <button [class.disabled]="isLeftDisabled()" class="previous" (click)="previousDayForecasts()">
+      <img src="../../assets/left_arrow.png">
+    </button>
+    <div class="forScroll">
+      <div *ngFor="let weather of forecasts.weather" class="tab">
+        <p class="date">{{weather.time}}</p>
+        <img src="../../assets/{{weather.icon}}.png">
+        <div class="temp">{{weather.temp}} &deg;C</div>
+        <p class="message">{{weather.message}}</p>
+      </div>
+    </div>
+    <button [class.disabled]="isRightDisabled()" class="next" (click)="nextDayForecasts()">
+      <img src="../../assets/right_arrow.png">
+    </button>
   </div>
+  <button class="back" (click)="previousPage()">Go back</button>
 </div>
-<button class="back" (click)="previousPage()">Go back</button>

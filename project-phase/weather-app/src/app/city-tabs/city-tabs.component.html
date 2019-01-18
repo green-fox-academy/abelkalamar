@@ -1,13 +1,6 @@
 <h1 class="title">TODAY'S WEATHER</h1>
 <div class="input">
   <input #citySearch class="inputCity" placeholder="Type in a city">
-  <select #selectDate class="dateSelector" (click)="getDate(selectDate.value)">
-    <option>{{today | date }}</option>
-    <option>{{tomorrow | date}}</option>
-    <option></option>
-    <option></option>
-    <option></option>
-  </select>
   <button class="search" (click)="searchForecast(citySearch.value)">Search</button>
 </div>
 <a *ngFor="let forecast of forecasts" routerLink="/detail/{{forecast.cityId}}">

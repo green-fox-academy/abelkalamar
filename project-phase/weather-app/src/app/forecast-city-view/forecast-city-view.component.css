@@ -1,11 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #415162;
-}
-  
 a {
   text-decoration: none;
   text-transform: none;
@@ -25,6 +17,7 @@ h1 {
   
 .content {
   width: 100%;
+  min-height: 100vh;
   background-color: #ECF0F1;
 }
   

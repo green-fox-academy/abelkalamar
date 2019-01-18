@@ -1,19 +1,18 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
-  
 a {
   text-decoration: none;
   text-transform: none;
 }
 
+.view {
+  height: 100vh;
+  overflow: hidden;
+}
+
 h1 {
   font-size: 40px;
-  margin: 20px 0px 0px 35px;
+  margin: 0px 0px 50px 60px;
   color: #415162;
+  padding-top: 60px;
 }
   
 .container {
@@ -25,11 +24,23 @@ h1 {
 .allTabs {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
 }
-  
-  
+
+.forScroll {
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+  flex: 2;
+}
+
+.forScroll::-webkit-scrollbar-track {
+  background-color: #ECF0F1;
+}
+.forScroll:hover::-webkit-scrollbar-thumb {
+  visibility:visible;
+  background: #bdc7d3;
+}
+
 .content {
   width: 1200px;
   background-color: #ECF0F1;
@@ -47,6 +58,7 @@ h1 {
     overflow: hidden;
     box-shadow: 13px 11px 32px -10px rgba(0,0,0,0.64);
     color: #415162;
+    flex: 1;
   }
 
 .tab img {
@@ -74,7 +86,7 @@ h1 {
 }
 
 .back {
-  margin: 30px 0px 30px 45%;
+  margin: 60px 0px 73px 45%;
   width: 10%;
   height: 50px;
   border: none;
@@ -91,4 +103,34 @@ h1 {
 
 .back:hover{
   background-color: #dde6f0;
+  width: 11%;
+  height: 55px;
+}
+
+
+.next, .previous {
+  width: 60px;
+  height: 100%;
+  margin: auto 0;
+  border: none;
+  background-color: #ECF0F1;
+  cursor: pointer;
+}
+
+.next:focus, .previous:focus {
+  outline: none;
+}
+
+.next:hover img, .previous:hover img{
+  width: 60px;
+  height: 60px;
+}
+
+.next img, .previous img {
+  width: 50px;
+  height: 50px;
+}
+
+.disabled img {
+  display: none;
 }

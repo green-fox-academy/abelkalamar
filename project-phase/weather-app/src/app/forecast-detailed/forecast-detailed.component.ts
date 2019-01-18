@@ -12,9 +12,10 @@ import { environment } from '../../environments/environment';
 })
 export class ForecastDetailedComponent implements OnInit {
 
-  forecasts: Weather[] = [];
+  forecasts: any = [];
   searchUrl: string = '';
-  now: Date = new Date();
+  searchDate: number = this.getCurrentDay();
+  // currentDate = this.forecasts.weather[0].date;
 
   constructor(
     private forecastService: ForecastService,
@@ -41,7 +42,34 @@ export class ForecastDetailedComponent implements OnInit {
     }
   }
 
-  getForecasts(url): void {
+  isLeftDisabled(): boolean {
+    return this.searchDate === this.getCurrentDay();
+  }
+
+  isRightDisabled(): boolean {
+    return this.searchDate === this.getCurrentDay() + 5;
+  }
+
+  getCurrentDay(): number {
+    const now = new Date();
+    return +now.toString().split(' ')[2];
+  }
+
+  nextDayForecasts(): void {
+    if (this.searchDate !== this.getCurrentDay() + 5) {
+      this.searchDate++;
+      this.getForecasts(this.searchUrl, this.searchDate);
+    }
+  }
+
+  previousDayForecasts(): void {
+    if (this.searchDate !== this.getCurrentDay()) {
+      this.searchDate--;
+      this.getForecasts(this.searchUrl, this.searchDate);
+    }
+  }
+
+  getForecasts(url: string, date = this.getCurrentDay()): void {
     this.forecasts = [];
     this.forecastService.getForecast(url)
       .subscribe(content => {
@@ -53,29 +81,22 @@ export class ForecastDetailedComponent implements OnInit {
           weather: []
         }
         content.list.forEach(e => {
-          if (e.dt_txt.includes('2019-01-18')) {
+          if (e.dt_txt.includes(`2019-01-${date}`)) {
             newForecast.weather.push({
               temp: +e.main.temp,
               icon: this.chooseImg(e.weather[0].main),
               message: e.weather[0].description,
-              time: e.dt_txt.slice(11, 16)
+              time: e.dt_txt.slice(11, 16),
+              date: e.dt_txt.slice(5, 10)
             });
           }
         });
-        // for (let i = 0; i < 5; i++) {
-        //   newForecast.weather.push({
-        //     temp: +content.list[i].main.temp,
-        //     icon: this.chooseImg(content.list[i].weather[0].main),
-        //     message: content.list[i].weather[0].description,
-        //     time: content.list[i].dt_txt.slice(11, 16)
-        //   });
-        // }
         this.forecasts = newForecast;
         console.log(this.forecasts);
       });
   }
 
-  previousPage() {
+  previousPage(): void {
     this.location.back();
   }
 
