@@ -1,19 +1,13 @@
 # My other repositories:
 
-### - [patchwork](https://github.com/abelkalamar/patchwork.git)
-
-### - [git-lesson-repository](https://github.com/abelkalamar/git-lesson-repository.git)
-
-### - [hello-world](https://github.com/abelkalamar/hello-world.git)
-
-### - [website-repos](https://github.com/abelkalamar/abelkalamar.github.io.git)
-
 ### - [wanderer-app](https://github.com/abelkalamar/wanderer-typescript)
 
-### - [exam-repo](https://github.com/abelkalamar/rueppellii-foundation-normal-exam)
+### - [foundation-exam-repo](https://github.com/abelkalamar/rueppellii-foundation-normal-exam)
 
-# Our lovely syllabus:
+### - [orientation-exam-repo](https://github.com/abelkalamar/rueppellii-orientation-normal-exam)
+
+# Our syllabus:
 
 ### - [really-syllabus](https://github.com/green-fox-academy/really-syllabus.git)
 
-## My first _[website](https://abelkalamar.github.io/)_ :metal:
+
